@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.teachingPlanGridView = new System.Windows.Forms.DataGridView();
+            this.insertRowButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.teachingPlanGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,11 +43,21 @@
             this.teachingPlanGridView.Size = new System.Drawing.Size(1696, 496);
             this.teachingPlanGridView.TabIndex = 0;
             // 
+            // insertRowButton
+            // 
+            this.insertRowButton.Location = new System.Drawing.Point(706, 566);
+            this.insertRowButton.Name = "insertRowButton";
+            this.insertRowButton.Size = new System.Drawing.Size(253, 57);
+            this.insertRowButton.TabIndex = 1;
+            this.insertRowButton.Text = "Wprowadź wiersz";
+            this.insertRowButton.UseVisualStyleBackColor = true;
+            // 
             // TeachingPlanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1696, 655);
+            this.Controls.Add(this.insertRowButton);
             this.Controls.Add(this.teachingPlanGridView);
             this.Name = "TeachingPlanForm";
             this.Text = "Plany kształcenia - zalogowano jako ";
@@ -60,5 +71,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView teachingPlanGridView;
+        private System.Windows.Forms.Button insertRowButton;
     }
 }
