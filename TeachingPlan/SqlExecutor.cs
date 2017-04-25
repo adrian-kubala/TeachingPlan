@@ -35,6 +35,8 @@ namespace TeachingPlan
                     {
                         dataAdapter.InsertCommand = insertSubjectCommand;
                         dataAdapter.Update(table);
+
+                        MessageBox.Show("Aktualizacja bazy powiodła się.");
                     }
                 }
             }

@@ -56,6 +56,7 @@ namespace TeachingPlan
                 teachingPlanGridView.ReadOnly = true;
                 teachingPlanGridView.AllowUserToAddRows = false;
                 teachingPlanGridView.AllowUserToDeleteRows = false;
+                insertRowButton.Visible = false;
             }
 
             Text += accountType.ToString();
