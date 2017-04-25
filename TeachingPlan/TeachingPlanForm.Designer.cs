@@ -45,7 +45,8 @@
             // 
             // insertRowButton
             // 
-            this.insertRowButton.Location = new System.Drawing.Point(706, 566);
+            this.insertRowButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.insertRowButton.Location = new System.Drawing.Point(1431, 542);
             this.insertRowButton.Name = "insertRowButton";
             this.insertRowButton.Size = new System.Drawing.Size(253, 57);
             this.insertRowButton.TabIndex = 1;

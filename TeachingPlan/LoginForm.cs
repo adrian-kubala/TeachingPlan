@@ -15,6 +15,7 @@ namespace TeachingPlan
         public LoginForm()
         {
             InitializeComponent();
+            accountTypeComboBox.SelectedIndex = 0;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
