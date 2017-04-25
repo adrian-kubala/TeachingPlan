@@ -22,9 +22,11 @@ namespace TeachingPlan
             Student
         };
 
-        public TeachingPlanForm()
+        public TeachingPlanForm(AccountType type)
         {
             InitializeComponent();
+
+            accountType = type;
         }
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)

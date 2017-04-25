@@ -26,10 +26,9 @@ namespace TeachingPlan
                 return;
             }
 
+            TeachingPlanForm.AccountType type = (TeachingPlanForm.AccountType)Enum.ToObject(typeof(TeachingPlanForm.AccountType), selectedIndex);
+            TeachingPlanForm form = new TeachingPlanForm(type);
 
-            TeachingPlanForm form = new TeachingPlanForm();
-
-            form.accountType = (TeachingPlanForm.AccountType)Enum.ToObject(typeof(TeachingPlanForm.AccountType), selectedIndex);
             form.ShowDialog();
         }
     }
