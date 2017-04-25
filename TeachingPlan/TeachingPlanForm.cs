@@ -63,36 +63,8 @@ namespace TeachingPlan
 
         private void insertRowButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
-                string subjectName = (string)lastRow.Cells[0].Value;
-                int hours = (int)lastRow.Cells[8].Value;
-                string classType = (string)lastRow.Cells[10].Value;
-                int ects = (int)lastRow.Cells[11].Value;
-
-                String insertSubjectQuery = Properties.Resources.DodajPrzedmiot;
-
-                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-                {
-                    SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
-
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", 1));
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
-
-                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(insertSubjectCommand))
-                    {
-                        dataAdapter.InsertCommand = insertSubjectCommand;
-                        dataAdapter.Update(table);
-                    }
-                }
-            }
-            catch (InvalidCastException)
-            {
-                MessageBox.Show("Pozostawiono puste pole(a). Aby dodać wpis uzupełnij dane.");
-            }
+            DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
+            SqlExecutor.Insert(table, lastRow);
         }
 
     }
