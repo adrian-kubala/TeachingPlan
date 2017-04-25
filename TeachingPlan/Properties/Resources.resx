@@ -121,4 +121,7 @@
   <data name="Aplikacja_student_przegladanie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Aplikacja_student_przegladanie.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="DodajPrzedmiot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DodajPrzedmiot.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
 </root>
