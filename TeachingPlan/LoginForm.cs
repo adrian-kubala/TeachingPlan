@@ -26,7 +26,7 @@ namespace TeachingPlan
                 return;
             }
 
-            TeachingPlanForm.AccountType type = (TeachingPlanForm.AccountType)Enum.ToObject(typeof(TeachingPlanForm.AccountType), selectedIndex);
+            AccountType type = (AccountType)Enum.ToObject(typeof(AccountType), selectedIndex);
             TeachingPlanForm form = new TeachingPlanForm(type);
 
             form.ShowDialog();

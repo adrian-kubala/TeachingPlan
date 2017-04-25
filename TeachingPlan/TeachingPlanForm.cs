@@ -16,12 +16,6 @@ namespace TeachingPlan
 
         public AccountType accountType;
 
-        public enum AccountType
-        {
-            Teacher,
-            Student
-        };
-
         public TeachingPlanForm(AccountType type)
         {
             InitializeComponent();
