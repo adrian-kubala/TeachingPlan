@@ -26,8 +26,15 @@ namespace TeachingPlan
                 {
                     SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
 
+                    int classTypeId = CheckForClassType(classType);
+                    if (classTypeId < 0)
+                    {
+                        MessageBox.Show("Wprowadzono nieprawidłową wartosć w kolumnie Tryb_zajec");
+                        return;
+                    }
+
                     insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", 1));
+                    insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
                     insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
                     insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
 
@@ -43,6 +50,23 @@ namespace TeachingPlan
             catch (InvalidCastException)
             {
                 MessageBox.Show("Pozostawiono puste pole(a). Aby dodać wpis uzupełnij dane.");
+            }
+        }
+
+        private static int CheckForClassType(string classType)
+        {
+            switch (classType)
+            {
+                case "Wyklad":
+                    return 1;
+                case "Cwiczenia":
+                    return 2;
+                case "Laboratoria":
+                    return 3;
+                case "Projekt":
+                    return 4;
+                default:
+                    return -1;
             }
         }
 
