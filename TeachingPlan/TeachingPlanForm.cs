@@ -60,5 +60,13 @@ namespace TeachingPlan
             Text += accountType.ToString();
         }
 
+        private void insertRowButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
+            string subjectName = lastRow.Cells[0].Value as string ?? string.Empty;
+            string hours = lastRow.Cells[8].Value as string ?? string.Empty;
+            string classType = lastRow.Cells[10].Value as string ?? string.Empty;
+            string ects = lastRow.Cells[11].Value as string ?? string.Empty;
+        }
     }
 }

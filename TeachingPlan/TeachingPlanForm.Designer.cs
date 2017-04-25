@@ -51,6 +51,7 @@
             this.insertRowButton.TabIndex = 1;
             this.insertRowButton.Text = "Wprowadź wiersz";
             this.insertRowButton.UseVisualStyleBackColor = true;
+            this.insertRowButton.Click += new System.EventHandler(this.insertRowButton_Click);
             // 
             // TeachingPlanForm
             // 
