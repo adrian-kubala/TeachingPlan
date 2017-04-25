@@ -13,8 +13,7 @@ namespace TeachingPlan
 {
     public partial class TeachingPlanForm : Form
     {
-
-        public AccountType accountType;
+        private AccountType accountType;
 
         public TeachingPlanForm(AccountType type)
         {
@@ -25,11 +24,16 @@ namespace TeachingPlan
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)
         {
-            String queryText = Properties.Resources.Aplikacja_student_przegladanie;
+            FillGridView();
+        }
+
+        private void FillGridView()
+        {
+            String teachingPlanQueryText = Properties.Resources.Aplikacja_student_przegladanie;
 
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
             {
-                SqlCommand teachingPlanCommand = new SqlCommand(queryText, connection);
+                SqlCommand teachingPlanCommand = new SqlCommand(teachingPlanQueryText, connection);
                 try
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
@@ -55,5 +59,6 @@ namespace TeachingPlan
 
             Text += accountType.ToString();
         }
+
     }
 }
