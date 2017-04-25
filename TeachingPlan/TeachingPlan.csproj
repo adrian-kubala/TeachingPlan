@@ -109,6 +109,9 @@
   <ItemGroup>
     <None Include="Resources\Aplikacja_student_przegladanie.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DodajPrzedmiot.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

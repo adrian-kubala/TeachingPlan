@@ -14,6 +14,7 @@ namespace TeachingPlan
     public partial class TeachingPlanForm : Form
     {
         private AccountType accountType;
+        private DataTable table;
 
         public TeachingPlanForm(AccountType type)
         {
@@ -38,7 +39,7 @@ namespace TeachingPlan
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
 
-                    DataTable table = new DataTable();
+                    table = new DataTable();
                     dataAdapter.Fill(table);
 
                     teachingPlanGridView.DataSource = table;
@@ -64,9 +65,35 @@ namespace TeachingPlan
         {
             DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
             string subjectName = lastRow.Cells[0].Value as string ?? string.Empty;
-            string hours = lastRow.Cells[8].Value as string ?? string.Empty;
+            int hours = (int)lastRow.Cells[8].Value;
             string classType = lastRow.Cells[10].Value as string ?? string.Empty;
-            string ects = lastRow.Cells[11].Value as string ?? string.Empty;
+            int ects = (int)lastRow.Cells[11].Value;
+
+            String insertSubjectQuery = Properties.Resources.DodajPrzedmiot;
+
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+            {
+                SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
+                try
+                {
+                    insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
+                    insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", 1));
+                    insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
+                    insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
+
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(insertSubjectCommand))
+                    {
+                        dataAdapter.InsertCommand = insertSubjectCommand;
+                        dataAdapter.Update(table);
+                    }
+                }
+                catch (Exception exeption)
+                {
+                    MessageBox.Show(exeption.Message);
+                }
+            }
+
+
         }
     }
 }
