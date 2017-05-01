@@ -79,6 +79,37 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Grupa_dziekanska.Id_grupy, COUNT(DISTINCT Nauczyciel.Id_nauczyciela) as Ilosc_nauczycieli
+        ///FROM Nauczyciel, Przedmiot, [PRZEDMIOT-NAUCZYCIEL], [SPECJALNOSC-PRZEDMIOT], Specjalnosc, Kierunek,
+        ///	Wydzial, Grupa_dziekanska
+        ///WHERE Nauczyciel.Id_nauczyciela = [PRZEDMIOT-NAUCZYCIEL].Id_nauczyciela AND
+        ///	[PRZEDMIOT-NAUCZYCIEL].Id_przedmiotu = Przedmiot.Id_przedmiotu AND 
+        ///	[SPECJALNOSC-PRZEDMIOT].Id_przedmiotu = Przedmiot.Id_przedmiotu AND
+        ///	[SPECJALNOSC-PRZEDMIOT].Id_specjalnosci = Specjalnosc.Id_specjalnos [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string czwarte_ilosc_wykladowcow {
+            get {
+                return ResourceManager.GetString("czwarte_ilosc_wykladowcow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT DISTINCT Imie_nauczyciela, Nazwisko_nauczyciela, Grupa_dziekanska.Id_grupy
+        ///FROM Nauczyciel, Przedmiot, [PRZEDMIOT-NAUCZYCIEL], [SPECJALNOSC-PRZEDMIOT], Specjalnosc, Kierunek,
+        ///	Wydzial, Grupa_dziekanska
+        ///WHERE Nauczyciel.Id_nauczyciela = [PRZEDMIOT-NAUCZYCIEL].Id_nauczyciela AND
+        ///	[PRZEDMIOT-NAUCZYCIEL].Id_przedmiotu = Przedmiot.Id_przedmiotu AND 
+        ///	[SPECJALNOSC-PRZEDMIOT].Id_przedmiotu = Przedmiot.Id_przedmiotu AND
+        ///	[SPECJALNOSC-PRZEDMIOT].Id_specjalnosci = Specjalnosc.Id_specjalnosci AND
+        ///	Kierun [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string czwarte_lista_wykladowcow {
+            get {
+                return ResourceManager.GetString("czwarte_lista_wykladowcow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO Przedmiot VALUES (@id_rodzaj_zajec, @nazwa, @ects, @godziny);.
         /// </summary>
         internal static string DodajPrzedmiot {

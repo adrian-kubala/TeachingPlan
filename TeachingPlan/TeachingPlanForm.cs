@@ -35,6 +35,11 @@ namespace TeachingPlan
             {
                 insertRowButton.Visible = false;
             }
+            else
+            {
+                queryTypeComboBox.Items.Add("lista wykładowców");
+                queryTypeComboBox.Items.Add("ilość wykładowców");
+            }
         }
 
         private void FillGridView(string queryText)
@@ -89,6 +94,12 @@ namespace TeachingPlan
                     break;
                 case 4:
                     FillGridView(Properties.Resources.drugie_ilosc_wykladowcow_katedry);
+                    break;
+                case 5:
+                    FillGridView(Properties.Resources.czwarte_lista_wykladowcow);
+                    break;
+                case 6:
+                    FillGridView(Properties.Resources.czwarte_ilosc_wykladowcow);
                     break;
             }
 
