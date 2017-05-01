@@ -71,6 +71,7 @@
             this.queryTypeComboBox.Name = "queryTypeComboBox";
             this.queryTypeComboBox.Size = new System.Drawing.Size(331, 33);
             this.queryTypeComboBox.TabIndex = 2;
+            this.queryTypeComboBox.SelectionChangeCommitted += new System.EventHandler(this.queryTypeComboBox_SelectionChangeCommitted);
             // 
             // label1
             // 

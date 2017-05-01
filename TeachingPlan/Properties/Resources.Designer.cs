@@ -86,5 +86,62 @@ namespace TeachingPlan.Properties {
                 return ResourceManager.GetString("DodajPrzedmiot", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Katedra.Nazwa_katedry, COUNT(Nauczyciel.Id_nauczyciela) as Ilosc_nauczycieli_katedry
+        ///FROM Katedra, Nauczyciel
+        ///WHERE Katedra.Id_katedry = Nauczyciel.Id_katedry AND 
+        ///	Katedra.Nazwa_katedry = &apos;Katedra Inzynierii Komputerowej&apos;
+        ///GROUP BY Nazwa_katedry;.
+        /// </summary>
+        internal static string drugie_ilosc_wykladowcow_katedry {
+            get {
+                return ResourceManager.GetString("drugie_ilosc_wykladowcow_katedry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Imie_nauczyciela, Nazwisko_nauczyciela, Nazwa_kategorii, Nazwa_tytulu, Plec_nauczyciela, 
+        ///DATEPART(YYYY, Data_urodzenia_nauczyciela) as Rok_urodzenia_nauczyciela, DATEDIFF(YY, Data_urodzenia_nauczyciela, 
+        ///GETDATE()) as Wiek_nauczyciela, Obecnosc_dzieci_nauczyciela, Ilosc_dzieci, Pensja_nauczyciela
+        ///FROM Nauczyciel, Katedra, Kategoria, Tytul
+        ///WHERE Nauczyciel.Id_katedry = Katedra.Id_katedry AND
+        ///	Katedra.Nazwa_katedry = &apos;Katedra Inzynierii Komputerowej&apos; AND
+        ///	Kategoria.Id_kategorii = Nauczyciel.Id_k [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string drugie_wykladowcy_katedr {
+            get {
+                return ResourceManager.GetString("drugie_wykladowcy_katedr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Grupa_dziekanska.Id_grupy, COUNT(Student.Id_studenta) as Ilosc_studentow_w_grupie
+        ///FROM Grupa_dziekanska, Student
+        ///WHERE Grupa_dziekanska.Id_grupy = 1 AND
+        ///	Student.Id_grupy = Grupa_dziekanska.Id_grupy
+        ///GROUP BY Grupa_dziekanska.Id_grupy;.
+        /// </summary>
+        internal static string pierwsze_ilosc_studentow_w_grupie {
+            get {
+                return ResourceManager.GetString("pierwsze_ilosc_studentow_w_grupie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Grupa_dziekanska.Id_grupy, Imie_studenta, Nazwisko_studenta, Plec_studenta, 
+        ///	DATEPART(YYYY, Data_urodzenia_studenta) as Rok_urodzenia_studenta, DATEDIFF(YY, Data_urodzenia_studenta,
+        ///	 GETDATE()) as Wiek_studenta, 
+        ///	Obecnosc_dzieci_studenta, Obecnosc_stypendium, Rozmiar_stypendium
+        ///FROM Wydzial, Grupa_dziekanska, Student
+        ///WHERE Student.Id_grupy = Grupa_dziekanska.Id_grupy AND
+        ///	Grupa_dziekanska.Id_wydzialu = Wydzial.Id_wydzialu AND Grupa_dziekanska.Id_grupy = 1
+        ///	 ORDER BY Nazwisko_studenta;.
+        /// </summary>
+        internal static string pierwsze_lista_studentow_grupy {
+            get {
+                return ResourceManager.GetString("pierwsze_lista_studentow_grupy", resourceCulture);
+            }
+        }
     }
 }

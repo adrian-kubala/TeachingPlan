@@ -26,16 +26,17 @@ namespace TeachingPlan
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)
         {
-            FillGridView();
+            String teachingPlanQueryText = Properties.Resources.Aplikacja_student_przegladanie;
+            FillGridView(teachingPlanQueryText);
+
+            UpdateText();
         }
 
-        private void FillGridView()
+        private void FillGridView(string queryText)
         {
-            String teachingPlanQueryText = Properties.Resources.Aplikacja_student_przegladanie;
-
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
             {
-                SqlCommand teachingPlanCommand = new SqlCommand(teachingPlanQueryText, connection);
+                SqlCommand teachingPlanCommand = new SqlCommand(queryText, connection);
                 try
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
@@ -58,8 +59,6 @@ namespace TeachingPlan
                 teachingPlanGridView.AllowUserToDeleteRows = false;
                 insertRowButton.Visible = false;
             }
-
-            UpdateText();
         }
 
         private void UpdateText()
@@ -71,6 +70,32 @@ namespace TeachingPlan
         {
             DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
             SqlExecutor.Insert(table, lastRow);
+        }
+
+        private void queryTypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int selectedIndex = queryTypeComboBox.SelectedIndex;
+
+            switch (selectedIndex)
+            {
+                case 0:
+                    FillGridView(Properties.Resources.Aplikacja_student_przegladanie);
+                    break;
+                case 1:
+                    FillGridView(Properties.Resources.pierwsze_lista_studentow_grupy);
+                    break;
+                case 2:
+                    FillGridView(Properties.Resources.pierwsze_ilosc_studentow_w_grupie);
+                    break;
+                case 3:
+                    FillGridView(Properties.Resources.drugie_wykladowcy_katedr);
+                    break;
+                case 4:
+                    FillGridView(Properties.Resources.drugie_ilosc_wykladowcow_katedry);
+                    break;
+            }
+
+            insertRowButton.Enabled = selectedIndex == 0;
         }
 
         private void exitButton_Click(object sender, EventArgs e)

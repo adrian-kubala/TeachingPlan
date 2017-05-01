@@ -113,6 +113,18 @@
   <ItemGroup>
     <None Include="Resources\DodajPrzedmiot.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drugie_ilosc_wykladowcow_katedry.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drugie_wykladowcy_katedr.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pierwsze_ilosc_studentow_w_grupie.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pierwsze_lista studentow_grupy.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
