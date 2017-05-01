@@ -158,6 +158,20 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Specjalnosc.Nazwa_specjalnosci, Nauczyciel.Imie_nauczyciela, Nauczyciel.Nazwisko_nauczyciela, Aktualny_semestr.Id_semestru, SUM(DISTINCT Przedmiot.Ilosc_godzin) as Obciazenie
+        ///FROM Rodzaj_zajec, Przedmiot, [SPECJALNOSC-PRZEDMIOT], Specjalnosc, Kierunek, Wydzial, Grupa_dziekanska, Aktualny_semestr,
+        ///	[PRZEDMIOT-NAUCZYCIEL], Nauczyciel
+        ///WHERE Rodzaj_zajec.Id_rodzaju_zajec = Przedmiot.Id_rodzaju_zajec AND
+        ///	Przedmiot.Id_przedmiotu = [SPECJALNOSC-PRZEDMIOT].Id_przedmiotu AND
+        ///	[SPECJALNOSC-PRZEDMIOT].Id_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string obciążenie_wykładowców {
+            get {
+                return ResourceManager.GetString("obciążenie_wykładowców", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT DISTINCT Nazwa_przedmiotu, Nazwa_studiow as Studia, Nazwa_stopnia as Tryb_studiow, CONCAT (Imie_nauczyciela, &apos; &apos; ,Nazwisko_nauczyciela) as Wykladowca, Nazwa_kategorii as Kategoria, Nazwa_tytulu as Tytul,
         ///	Nazwa_specjalnosci as Specjalnosc,
         ///	substring(
