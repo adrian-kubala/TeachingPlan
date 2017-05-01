@@ -13,24 +13,71 @@ namespace TeachingPlan
 {
     public partial class TeachingPlanForm : Form
     {
+        private AccountType accountType;
+        private DataTable table;
 
-        public AccountType accountType;
-
-        public enum AccountType
-        {
-            Teacher,
-            Student
-        };
-
-        public TeachingPlanForm()
+        public TeachingPlanForm(AccountType type)
         {
             InitializeComponent();
+
+            accountType = type;
+            queryTypeComboBox.SelectedIndex = 0;
         }
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)
         {
-            String queryText = Properties.Resources.Aplikacja_student_przegladanie;
+            PrepareDataGridView();
+            UpdateText();
+            PrepareViewsForUser();
+        }
 
+        private void UpdateText()
+        {
+            Text += accountType.text();
+        }
+
+        private void PrepareViewsForUser()
+        {
+            if (accountType == AccountType.Student || accountType == AccountType.AdministrativeWorker)
+            {
+                insertRowButton.Visible = false;
+            }
+
+            if (accountType != AccountType.Student)
+            {
+                queryTypeComboBox.Items.Add("lista wykładowców grupy");
+                queryTypeComboBox.Items.Add("ilość wykładowców grupy");
+            }
+
+            if (accountType != AccountType.Student && accountType != AccountType.Teacher)
+            {
+                queryTypeComboBox.Items.Add("lista katedr");
+                insertRowButton.Text = "Przydziel prowadzącego";
+            }
+
+            if (accountType == AccountType.AdministrativeWorker)
+            {
+                queryTypeComboBox.Items.Add("obciążenie wykładowców");
+            }
+        }
+
+        private void PrepareDataGridView()
+        {
+            String teachingPlanQueryText = Properties.Resources.plan_kształcenia;
+            FillGridView(teachingPlanQueryText);
+        }
+
+        private void queryTypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string underscoredQueryTypeComboBoxText = (queryTypeComboBox.SelectedItem as string).Replace(" ", "_");
+            FillGridView(Properties.Resources.ResourceManager.GetString(underscoredQueryTypeComboBoxText));
+
+            int selectedIndex = queryTypeComboBox.SelectedIndex;
+            insertRowButton.Enabled = selectedIndex == 0;
+        }
+
+        private void FillGridView(string queryText)
+        {
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
             {
                 SqlCommand teachingPlanCommand = new SqlCommand(queryText, connection);
@@ -38,7 +85,7 @@ namespace TeachingPlan
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
 
-                    DataTable table = new DataTable();
+                    table = new DataTable();
                     dataAdapter.Fill(table);
 
                     teachingPlanGridView.DataSource = table;
@@ -48,16 +95,17 @@ namespace TeachingPlan
                     MessageBox.Show(exeption.Message);
                 }
             }
+        }
 
-            if (accountType == AccountType.Student)
-            {
-                teachingPlanGridView.Dock = DockStyle.Fill;
-                teachingPlanGridView.ReadOnly = true;
-                teachingPlanGridView.AllowUserToAddRows = false;
-                teachingPlanGridView.AllowUserToDeleteRows = false;
-            }
+        private void insertRowButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
+            SqlExecutor.Insert(table, lastRow);
+        }
 
-            Text += accountType.ToString();
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

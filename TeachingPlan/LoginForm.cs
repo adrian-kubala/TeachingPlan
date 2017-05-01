@@ -15,22 +15,27 @@ namespace TeachingPlan
         public LoginForm()
         {
             InitializeComponent();
+            InitComboBox();
+        }
+
+        private void InitComboBox()
+        {
+            accountTypeComboBox.SelectedIndex = 0;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             int selectedIndex = accountTypeComboBox.SelectedIndex;
-            if (selectedIndex < 0)
-            {
-                MessageBox.Show("Nie wybrano żadnego konta");
-                return;
-            }
 
-
-            TeachingPlanForm form = new TeachingPlanForm();
-
-            form.accountType = (TeachingPlanForm.AccountType)Enum.ToObject(typeof(TeachingPlanForm.AccountType), selectedIndex);
+            AccountType type = (AccountType)Enum.ToObject(typeof(AccountType), selectedIndex);
+            TeachingPlanForm form = new TeachingPlanForm(type);
+            
             form.ShowDialog();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
