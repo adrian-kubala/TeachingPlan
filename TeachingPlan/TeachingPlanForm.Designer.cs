@@ -59,6 +59,7 @@
             // 
             // queryTypeComboBox
             // 
+            this.queryTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.queryTypeComboBox.FormattingEnabled = true;
             this.queryTypeComboBox.Items.AddRange(new object[] {
             "plan kształcenia",
