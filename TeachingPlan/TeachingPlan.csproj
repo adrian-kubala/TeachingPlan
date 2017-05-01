@@ -108,31 +108,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Aplikacja_student_przegladanie.sql" />
+    <None Include="Resources\plan_kształcenia.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DodajPrzedmiot.sql" />
+    <None Include="Resources\ilość_studentów_w_grupie.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\drugie_ilosc_wykladowcow_katedry.sql" />
+    <None Include="Resources\lista_studentów_grupy.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\drugie_wykladowcy_katedr.sql" />
+    <None Include="Resources\ilość_wykładowców_katedr.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pierwsze_ilosc_studentow_w_grupie.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pierwsze_lista studentow_grupy.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\czwarte_ilosc_wykladowcow.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\czwarte_lista_wykladowcow.sql" />
+    <None Include="Resources\wykładowcy_katedr.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lista_katedr.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ilość_wykładowców_grupy.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista_wykładowców_grupy.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DodajPrzedmiot.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

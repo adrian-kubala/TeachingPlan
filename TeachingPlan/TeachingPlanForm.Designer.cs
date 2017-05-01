@@ -70,7 +70,7 @@
             this.queryTypeComboBox.Items.AddRange(new object[] {
             "plan kształcenia",
             "lista studentów grupy",
-            "ilosć studentów w grupie",
+            "ilość studentów w grupie",
             "wykładowcy katedr",
             "ilość wykładowców katedr"});
             this.queryTypeComboBox.Location = new System.Drawing.Point(12, 62);

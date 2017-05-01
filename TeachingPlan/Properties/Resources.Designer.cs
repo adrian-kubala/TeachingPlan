@@ -76,9 +76,9 @@ namespace TeachingPlan.Properties {
         ///	Student.Id_grupy = Grupa_dziekanska.Id_grupy
         ///GROUP BY Grupa_dziekanska.Id_grupy;.
         /// </summary>
-        internal static string ilosć_studentów_w_grupie {
+        internal static string ilość_studentów_w_grupie {
             get {
-                return ResourceManager.GetString("ilosć_studentów_w_grupie", resourceCulture);
+                return ResourceManager.GetString("ilość_studentów_w_grupie", resourceCulture);
             }
         }
         
