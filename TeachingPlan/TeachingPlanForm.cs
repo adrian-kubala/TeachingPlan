@@ -35,10 +35,16 @@ namespace TeachingPlan
             {
                 insertRowButton.Visible = false;
             }
-            else
+
+            if (accountType == AccountType.Teacher || accountType == AccountType.CathedralManager)
             {
                 queryTypeComboBox.Items.Add("lista wykładowców grupy");
                 queryTypeComboBox.Items.Add("ilość wykładowców grupy");
+            }
+
+            if (accountType == AccountType.CathedralManager)
+            {
+                queryTypeComboBox.Items.Add("lista katedr");
             }
         }
 

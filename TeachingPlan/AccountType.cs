@@ -2,9 +2,9 @@
 {
     public enum AccountType
     {
+        CathedralManager,
         Teacher,
-        Student,
-        CathedralManager
+        Student
     }
 
     static class AccountTypeMethods

@@ -111,6 +111,21 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT DISTINCT Nazwa_katedry, Przedmiot.Nazwa_przedmiotu, Grupa_dziekanska.Id_grupy, Aktualny_semestr.Id_semestru 
+        ///FROM Katedra, Grupa_dziekanska, Nauczyciel, [PRZEDMIOT-NAUCZYCIEL], [SPECJALNOSC-PRZEDMIOT], Przedmiot,
+        ///	Specjalnosc, Kierunek, Wydzial, Aktualny_semestr
+        ///WHERE Nauczyciel.Id_katedry = Katedra.Id_katedry AND
+        ///	[PRZEDMIOT-NAUCZYCIEL].Id_nauczyciela = Nauczyciel.Id_nauczyciela AND
+        ///	[PRZEDMIOT-NAUCZYCIEL].Id_przedmiotu = Przedmiot.Id_przedmiotu AND
+        ///	[SPECJALNOSC-PRZEDMIOT].Id_przedmiotu = Prz [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lista_katedr {
+            get {
+                return ResourceManager.GetString("lista_katedr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Grupa_dziekanska.Id_grupy, Imie_studenta, Nazwisko_studenta, Plec_studenta, 
         ///	DATEPART(YYYY, Data_urodzenia_studenta) as Rok_urodzenia_studenta, DATEDIFF(YY, Data_urodzenia_studenta,
         ///	 GETDATE()) as Wiek_studenta, 
