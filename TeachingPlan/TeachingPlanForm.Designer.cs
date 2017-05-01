@@ -38,20 +38,24 @@
             // 
             // teachingPlanGridView
             // 
+            this.teachingPlanGridView.AllowUserToAddRows = false;
+            this.teachingPlanGridView.AllowUserToDeleteRows = false;
             this.teachingPlanGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.teachingPlanGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.teachingPlanGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.teachingPlanGridView.Location = new System.Drawing.Point(360, 34);
             this.teachingPlanGridView.Name = "teachingPlanGridView";
+            this.teachingPlanGridView.ReadOnly = true;
             this.teachingPlanGridView.RowTemplate.Height = 33;
-            this.teachingPlanGridView.Size = new System.Drawing.Size(1774, 462);
+            this.teachingPlanGridView.Size = new System.Drawing.Size(2000, 926);
             this.teachingPlanGridView.TabIndex = 0;
             // 
             // insertRowButton
             // 
             this.insertRowButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.insertRowButton.Location = new System.Drawing.Point(12, 359);
+            this.insertRowButton.Location = new System.Drawing.Point(12, 823);
             this.insertRowButton.Name = "insertRowButton";
             this.insertRowButton.Size = new System.Drawing.Size(331, 57);
             this.insertRowButton.TabIndex = 1;
@@ -87,7 +91,7 @@
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.exitButton.Location = new System.Drawing.Point(12, 439);
+            this.exitButton.Location = new System.Drawing.Point(12, 903);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(331, 57);
             this.exitButton.TabIndex = 4;
@@ -99,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2162, 537);
+            this.ClientSize = new System.Drawing.Size(2388, 1001);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.queryTypeComboBox);

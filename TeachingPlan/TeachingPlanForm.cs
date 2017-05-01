@@ -30,6 +30,11 @@ namespace TeachingPlan
             FillGridView(teachingPlanQueryText);
 
             UpdateText();
+
+            if (accountType == AccountType.Student)
+            {
+                insertRowButton.Visible = false;
+            }
         }
 
         private void FillGridView(string queryText)
@@ -50,14 +55,6 @@ namespace TeachingPlan
                 {
                     MessageBox.Show(exeption.Message);
                 }
-            }
-
-            if (accountType == AccountType.Student)
-            {
-                teachingPlanGridView.ReadOnly = true;
-                teachingPlanGridView.AllowUserToAddRows = false;
-                teachingPlanGridView.AllowUserToDeleteRows = false;
-                insertRowButton.Visible = false;
             }
         }
 
