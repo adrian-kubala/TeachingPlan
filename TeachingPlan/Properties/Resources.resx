@@ -139,6 +139,9 @@
   <data name="lista_wykładowców_grupy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lista_wykładowców_grupy.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="obciążenie_wykładowców" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\obciążenie_wykładowców.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
   <data name="plan_kształcenia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plan_kształcenia.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>

@@ -2,6 +2,7 @@
 {
     public enum AccountType
     {
+        AdministrativeWorker,
         CathedralManager,
         Teacher,
         Student
@@ -13,12 +14,14 @@
         {
             switch (type)
             {
+                case AccountType.AdministrativeWorker:
+                    return "Pracownik administracyjny";
+                case AccountType.CathedralManager:
+                    return "Kierownik katedry";
                 case AccountType.Teacher:
                     return "Nauczyciel";
                 case AccountType.Student:
                     return type.ToString();
-                case AccountType.CathedralManager:
-                    return "Kierownik katedry";
                 default:
                     return "Gość";
             }

@@ -31,21 +31,26 @@ namespace TeachingPlan
 
             UpdateText();
 
-            if (accountType == AccountType.Student)
+            if (accountType == AccountType.Student || accountType == AccountType.AdministrativeWorker)
             {
                 insertRowButton.Visible = false;
             }
 
-            if (accountType == AccountType.Teacher || accountType == AccountType.CathedralManager)
+            if (accountType != AccountType.Student)
             {
                 queryTypeComboBox.Items.Add("lista wykładowców grupy");
                 queryTypeComboBox.Items.Add("ilość wykładowców grupy");
             }
 
-            if (accountType == AccountType.CathedralManager)
+            if (accountType != AccountType.Student && accountType != AccountType.Teacher)
             {
                 queryTypeComboBox.Items.Add("lista katedr");
                 insertRowButton.Text = "Przydziel prowadzącego";
+            }
+
+            if (accountType == AccountType.AdministrativeWorker)
+            {
+                queryTypeComboBox.Items.Add("obciążenie wykładowców");
             }
         }
 
