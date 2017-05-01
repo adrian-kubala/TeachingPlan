@@ -3,7 +3,8 @@
     public enum AccountType
     {
         Teacher,
-        Student
+        Student,
+        CathedralManager
     }
 
     static class AccountTypeMethods
@@ -16,6 +17,8 @@
                     return "Nauczyciel";
                 case AccountType.Student:
                     return type.ToString();
+                case AccountType.CathedralManager:
+                    return "Kierownik katedry";
                 default:
                     return "Gość";
             }
