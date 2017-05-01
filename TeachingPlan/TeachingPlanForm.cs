@@ -21,20 +21,32 @@ namespace TeachingPlan
             InitializeComponent();
 
             accountType = type;
+            queryTypeComboBox.SelectedIndex = 0;
         }
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)
         {
-            FillGridView();
+            String teachingPlanQueryText = Properties.Resources.plan_kształcenia;
+            FillGridView(teachingPlanQueryText);
+
+            UpdateText();
+
+            if (accountType == AccountType.Student)
+            {
+                insertRowButton.Visible = false;
+            }
+            else
+            {
+                queryTypeComboBox.Items.Add("lista wykładowców grupy");
+                queryTypeComboBox.Items.Add("ilość wykładowców grupy");
+            }
         }
 
-        private void FillGridView()
+        private void FillGridView(string queryText)
         {
-            String teachingPlanQueryText = Properties.Resources.Aplikacja_student_przegladanie;
-
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
             {
-                SqlCommand teachingPlanCommand = new SqlCommand(teachingPlanQueryText, connection);
+                SqlCommand teachingPlanCommand = new SqlCommand(queryText, connection);
                 try
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
@@ -49,17 +61,11 @@ namespace TeachingPlan
                     MessageBox.Show(exeption.Message);
                 }
             }
+        }
 
-            if (accountType == AccountType.Student)
-            {
-                teachingPlanGridView.Dock = DockStyle.Fill;
-                teachingPlanGridView.ReadOnly = true;
-                teachingPlanGridView.AllowUserToAddRows = false;
-                teachingPlanGridView.AllowUserToDeleteRows = false;
-                insertRowButton.Visible = false;
-            }
-
-            Text += accountType.ToString();
+        private void UpdateText()
+        {
+            Text += accountType.text();
         }
 
         private void insertRowButton_Click(object sender, EventArgs e)
@@ -68,5 +74,18 @@ namespace TeachingPlan
             SqlExecutor.Insert(table, lastRow);
         }
 
+        private void queryTypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string underscoredQueryTypeComboBoxText = (queryTypeComboBox.SelectedItem as string).Replace(" ", "_");
+            FillGridView(Properties.Resources.ResourceManager.GetString(underscoredQueryTypeComboBoxText));
+
+            int selectedIndex = queryTypeComboBox.SelectedIndex;
+            insertRowButton.Enabled = selectedIndex == 0;
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
