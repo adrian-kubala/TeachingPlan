@@ -15,6 +15,11 @@ namespace TeachingPlan
         public LoginForm()
         {
             InitializeComponent();
+            InitComboBox();
+        }
+
+        private void InitComboBox()
+        {
             accountTypeComboBox.SelectedIndex = 0;
         }
 
