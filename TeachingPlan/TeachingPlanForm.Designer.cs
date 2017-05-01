@@ -30,43 +30,76 @@
         {
             this.teachingPlanGridView = new System.Windows.Forms.DataGridView();
             this.insertRowButton = new System.Windows.Forms.Button();
+            this.queryTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.teachingPlanGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // teachingPlanGridView
             // 
+            this.teachingPlanGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.teachingPlanGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.teachingPlanGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.teachingPlanGridView.Location = new System.Drawing.Point(0, 0);
+            this.teachingPlanGridView.Location = new System.Drawing.Point(286, 34);
             this.teachingPlanGridView.Name = "teachingPlanGridView";
             this.teachingPlanGridView.RowTemplate.Height = 33;
-            this.teachingPlanGridView.Size = new System.Drawing.Size(1696, 496);
+            this.teachingPlanGridView.Size = new System.Drawing.Size(1628, 462);
             this.teachingPlanGridView.TabIndex = 0;
             // 
             // insertRowButton
             // 
-            this.insertRowButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.insertRowButton.Location = new System.Drawing.Point(1431, 542);
+            this.insertRowButton.Location = new System.Drawing.Point(12, 359);
             this.insertRowButton.Name = "insertRowButton";
             this.insertRowButton.Size = new System.Drawing.Size(253, 57);
             this.insertRowButton.TabIndex = 1;
-            this.insertRowButton.Text = "Wprowadź wiersz";
+            this.insertRowButton.Text = "Wprowadź przedmiot";
             this.insertRowButton.UseVisualStyleBackColor = true;
             this.insertRowButton.Click += new System.EventHandler(this.insertRowButton_Click);
+            // 
+            // queryTypeComboBox
+            // 
+            this.queryTypeComboBox.FormattingEnabled = true;
+            this.queryTypeComboBox.Location = new System.Drawing.Point(12, 62);
+            this.queryTypeComboBox.Name = "queryTypeComboBox";
+            this.queryTypeComboBox.Size = new System.Drawing.Size(253, 33);
+            this.queryTypeComboBox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Wyświetl dane:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 439);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(253, 57);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Wyjdź";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // TeachingPlanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1696, 655);
+            this.ClientSize = new System.Drawing.Size(1942, 537);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.queryTypeComboBox);
             this.Controls.Add(this.insertRowButton);
             this.Controls.Add(this.teachingPlanGridView);
             this.Name = "TeachingPlanForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plany kształcenia - zalogowano jako ";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TeachingPlanForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.teachingPlanGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -74,5 +107,8 @@
 
         private System.Windows.Forms.DataGridView teachingPlanGridView;
         private System.Windows.Forms.Button insertRowButton;
+        private System.Windows.Forms.ComboBox queryTypeComboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

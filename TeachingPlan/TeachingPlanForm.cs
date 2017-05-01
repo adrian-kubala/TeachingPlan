@@ -52,7 +52,6 @@ namespace TeachingPlan
 
             if (accountType == AccountType.Student)
             {
-                teachingPlanGridView.Dock = DockStyle.Fill;
                 teachingPlanGridView.ReadOnly = true;
                 teachingPlanGridView.AllowUserToAddRows = false;
                 teachingPlanGridView.AllowUserToDeleteRows = false;
