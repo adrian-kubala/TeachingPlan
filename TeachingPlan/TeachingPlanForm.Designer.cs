@@ -38,7 +38,8 @@
             // 
             // teachingPlanGridView
             // 
-            this.teachingPlanGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.teachingPlanGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.teachingPlanGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.teachingPlanGridView.Location = new System.Drawing.Point(360, 34);
@@ -49,6 +50,7 @@
             // 
             // insertRowButton
             // 
+            this.insertRowButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.insertRowButton.Location = new System.Drawing.Point(12, 359);
             this.insertRowButton.Name = "insertRowButton";
             this.insertRowButton.Size = new System.Drawing.Size(331, 57);
@@ -84,6 +86,7 @@
             // 
             // exitButton
             // 
+            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.exitButton.Location = new System.Drawing.Point(12, 439);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(331, 57);
