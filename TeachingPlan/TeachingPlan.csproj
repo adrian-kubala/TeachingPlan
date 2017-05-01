@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlExecutor.cs" />
     <Compile Include="teachingPlanDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aplikacja_student_przegladanie.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DodajPrzedmiot.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

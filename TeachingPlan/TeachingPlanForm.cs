@@ -14,6 +14,7 @@ namespace TeachingPlan
     public partial class TeachingPlanForm : Form
     {
         private AccountType accountType;
+        private DataTable table;
 
         public TeachingPlanForm(AccountType type)
         {
@@ -38,7 +39,7 @@ namespace TeachingPlan
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
 
-                    DataTable table = new DataTable();
+                    table = new DataTable();
                     dataAdapter.Fill(table);
 
                     teachingPlanGridView.DataSource = table;
@@ -55,9 +56,16 @@ namespace TeachingPlan
                 teachingPlanGridView.ReadOnly = true;
                 teachingPlanGridView.AllowUserToAddRows = false;
                 teachingPlanGridView.AllowUserToDeleteRows = false;
+                insertRowButton.Visible = false;
             }
 
             Text += accountType.ToString();
+        }
+
+        private void insertRowButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
+            SqlExecutor.Insert(table, lastRow);
         }
 
     }

@@ -34,7 +34,8 @@
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(256, 123);
+            this.loginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginButton.Location = new System.Drawing.Point(318, 123);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(132, 49);
             this.loginButton.TabIndex = 0;
@@ -44,22 +45,26 @@
             // 
             // accountTypeComboBox
             // 
+            this.accountTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.accountTypeComboBox.FormattingEnabled = true;
             this.accountTypeComboBox.Items.AddRange(new object[] {
             "Nauczyciel",
             "Student"});
             this.accountTypeComboBox.Location = new System.Drawing.Point(36, 38);
             this.accountTypeComboBox.Name = "accountTypeComboBox";
-            this.accountTypeComboBox.Size = new System.Drawing.Size(352, 33);
+            this.accountTypeComboBox.Size = new System.Drawing.Size(414, 33);
             this.accountTypeComboBox.TabIndex = 1;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 211);
+            this.ClientSize = new System.Drawing.Size(483, 211);
             this.Controls.Add(this.accountTypeComboBox);
             this.Controls.Add(this.loginButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logowanie";

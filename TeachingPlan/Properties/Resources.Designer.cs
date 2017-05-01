@@ -77,5 +77,14 @@ namespace TeachingPlan.Properties {
                 return ResourceManager.GetString("Aplikacja_student_przegladanie", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Przedmiot VALUES (@id_rodzaj_zajec, @nazwa, @ects, @godziny);.
+        /// </summary>
+        internal static string DodajPrzedmiot {
+            get {
+                return ResourceManager.GetString("DodajPrzedmiot", resourceCulture);
+            }
+        }
     }
 }
