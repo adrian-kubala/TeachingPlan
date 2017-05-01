@@ -51,6 +51,7 @@
             this.accountTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.accountTypeComboBox.FormattingEnabled = true;
             this.accountTypeComboBox.Items.AddRange(new object[] {
+            "Pracownik administracyjny",
             "Kierownik katedry",
             "Nauczyciel",
             "Student"});
