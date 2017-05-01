@@ -45,6 +45,7 @@ namespace TeachingPlan
             if (accountType == AccountType.CathedralManager)
             {
                 queryTypeComboBox.Items.Add("lista katedr");
+                insertRowButton.Text = "Przydziel prowadzącego";
             }
         }
 
