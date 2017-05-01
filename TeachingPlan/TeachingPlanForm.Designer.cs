@@ -72,7 +72,7 @@
             "lista studentów grupy",
             "ilosć studentów w grupie",
             "wykładowcy katedr",
-            "ilość wykładowców katedry"});
+            "ilość wykładowców katedr"});
             this.queryTypeComboBox.Location = new System.Drawing.Point(12, 62);
             this.queryTypeComboBox.Name = "queryTypeComboBox";
             this.queryTypeComboBox.Size = new System.Drawing.Size(331, 33);

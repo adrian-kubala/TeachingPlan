@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Aplikacja_student_przegladanie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Aplikacja_student_przegladanie.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
-  </data>
-  <data name="czwarte_ilosc_wykladowcow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\czwarte_ilosc_wykladowcow.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
-  </data>
-  <data name="czwarte_lista_wykladowcow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\czwarte_lista_wykladowcow.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
-  </data>
   <data name="DodajPrzedmiot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DodajPrzedmiot.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
-  <data name="drugie_ilosc_wykladowcow_katedry" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drugie_ilosc_wykladowcow_katedry.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
-  </data>
-  <data name="drugie_wykladowcy_katedr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drugie_wykladowcy_katedr.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
-  </data>
-  <data name="pierwsze_ilosc_studentow_w_grupie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ilosć_studentów_w_grupie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pierwsze_ilosc_studentow_w_grupie.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
-  <data name="pierwsze_lista_studentow_grupy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ilość_wykładowców_grupy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\czwarte_ilosc_wykladowcow.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="ilość_wykładowców_katedr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drugie_ilosc_wykladowcow_katedry.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-2</value>
+  </data>
+  <data name="lista_studentów_grupy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pierwsze_lista studentow_grupy.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="lista_wykładowców_grupy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\czwarte_lista_wykladowcow.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="plan_kształcenia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Aplikacja_student_przegladanie.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="wykładowcy_katedr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drugie_wykladowcy_katedr.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
 </root>

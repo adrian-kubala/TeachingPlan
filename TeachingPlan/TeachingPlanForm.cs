@@ -26,7 +26,7 @@ namespace TeachingPlan
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)
         {
-            String teachingPlanQueryText = Properties.Resources.Aplikacja_student_przegladanie;
+            String teachingPlanQueryText = Properties.Resources.plan_kształcenia;
             FillGridView(teachingPlanQueryText);
 
             UpdateText();
@@ -37,8 +37,8 @@ namespace TeachingPlan
             }
             else
             {
-                queryTypeComboBox.Items.Add("lista wykładowców");
-                queryTypeComboBox.Items.Add("ilość wykładowców");
+                queryTypeComboBox.Items.Add("lista wykładowców grupy");
+                queryTypeComboBox.Items.Add("ilość wykładowców grupy");
             }
         }
 
@@ -76,33 +76,10 @@ namespace TeachingPlan
 
         private void queryTypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            string underscoredQueryTypeComboBoxText = (queryTypeComboBox.SelectedItem as string).Replace(" ", "_");
+            FillGridView(Properties.Resources.ResourceManager.GetString(underscoredQueryTypeComboBoxText));
+
             int selectedIndex = queryTypeComboBox.SelectedIndex;
-
-            switch (selectedIndex)
-            {
-                case 0:
-                    FillGridView(Properties.Resources.Aplikacja_student_przegladanie);
-                    break;
-                case 1:
-                    FillGridView(Properties.Resources.pierwsze_lista_studentow_grupy);
-                    break;
-                case 2:
-                    FillGridView(Properties.Resources.pierwsze_ilosc_studentow_w_grupie);
-                    break;
-                case 3:
-                    FillGridView(Properties.Resources.drugie_wykladowcy_katedr);
-                    break;
-                case 4:
-                    FillGridView(Properties.Resources.drugie_ilosc_wykladowcow_katedry);
-                    break;
-                case 5:
-                    FillGridView(Properties.Resources.czwarte_lista_wykladowcow);
-                    break;
-                case 6:
-                    FillGridView(Properties.Resources.czwarte_ilosc_wykladowcow);
-                    break;
-            }
-
             insertRowButton.Enabled = selectedIndex == 0;
         }
 
