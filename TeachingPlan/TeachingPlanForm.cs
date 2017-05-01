@@ -58,7 +58,12 @@ namespace TeachingPlan
                 insertRowButton.Visible = false;
             }
 
-            Text += accountType.ToString();
+            UpdateText();
+        }
+
+        private void UpdateText()
+        {
+            Text += accountType.text();
         }
 
         private void insertRowButton_Click(object sender, EventArgs e)
