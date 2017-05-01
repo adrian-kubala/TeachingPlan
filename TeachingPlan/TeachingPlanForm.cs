@@ -26,11 +26,18 @@ namespace TeachingPlan
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)
         {
-            String teachingPlanQueryText = Properties.Resources.plan_kształcenia;
-            FillGridView(teachingPlanQueryText);
-
+            PrepareDataGridView();
             UpdateText();
+            PrepareViewsForUser();
+        }
 
+        private void UpdateText()
+        {
+            Text += accountType.text();
+        }
+
+        private void PrepareViewsForUser()
+        {
             if (accountType == AccountType.Student || accountType == AccountType.AdministrativeWorker)
             {
                 insertRowButton.Visible = false;
@@ -54,6 +61,21 @@ namespace TeachingPlan
             }
         }
 
+        private void PrepareDataGridView()
+        {
+            String teachingPlanQueryText = Properties.Resources.plan_kształcenia;
+            FillGridView(teachingPlanQueryText);
+        }
+
+        private void queryTypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string underscoredQueryTypeComboBoxText = (queryTypeComboBox.SelectedItem as string).Replace(" ", "_");
+            FillGridView(Properties.Resources.ResourceManager.GetString(underscoredQueryTypeComboBoxText));
+
+            int selectedIndex = queryTypeComboBox.SelectedIndex;
+            insertRowButton.Enabled = selectedIndex == 0;
+        }
+
         private void FillGridView(string queryText)
         {
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
@@ -75,24 +97,10 @@ namespace TeachingPlan
             }
         }
 
-        private void UpdateText()
-        {
-            Text += accountType.text();
-        }
-
         private void insertRowButton_Click(object sender, EventArgs e)
         {
             DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
             SqlExecutor.Insert(table, lastRow);
-        }
-
-        private void queryTypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            string underscoredQueryTypeComboBoxText = (queryTypeComboBox.SelectedItem as string).Replace(" ", "_");
-            FillGridView(Properties.Resources.ResourceManager.GetString(underscoredQueryTypeComboBoxText));
-
-            int selectedIndex = queryTypeComboBox.SelectedIndex;
-            insertRowButton.Enabled = selectedIndex == 0;
         }
 
         private void exitButton_Click(object sender, EventArgs e)
