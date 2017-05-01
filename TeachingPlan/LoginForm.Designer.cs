@@ -30,14 +30,15 @@
         {
             this.loginButton = new System.Windows.Forms.Button();
             this.accountTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginButton
             // 
-            this.loginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginButton.Location = new System.Drawing.Point(318, 123);
+            this.loginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginButton.Location = new System.Drawing.Point(473, 35);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(132, 49);
+            this.loginButton.Size = new System.Drawing.Size(104, 44);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Zaloguj";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -45,8 +46,7 @@
             // 
             // accountTypeComboBox
             // 
-            this.accountTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.accountTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.accountTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.accountTypeComboBox.FormattingEnabled = true;
@@ -54,16 +54,27 @@
             "Kierownik katedry",
             "Nauczyciel",
             "Student"});
-            this.accountTypeComboBox.Location = new System.Drawing.Point(36, 38);
+            this.accountTypeComboBox.Location = new System.Drawing.Point(12, 37);
             this.accountTypeComboBox.Name = "accountTypeComboBox";
-            this.accountTypeComboBox.Size = new System.Drawing.Size(414, 33);
+            this.accountTypeComboBox.Size = new System.Drawing.Size(444, 33);
             this.accountTypeComboBox.TabIndex = 1;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitButton.Location = new System.Drawing.Point(324, 119);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(253, 49);
+            this.exitButton.TabIndex = 2;
+            this.exitButton.Text = "Zakończ";
+            this.exitButton.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 211);
+            this.ClientSize = new System.Drawing.Size(592, 201);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.accountTypeComboBox);
             this.Controls.Add(this.loginButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -78,6 +89,7 @@
 
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.ComboBox accountTypeComboBox;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 
