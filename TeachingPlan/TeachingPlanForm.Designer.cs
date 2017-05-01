@@ -32,7 +32,7 @@
             this.insertRowButton = new System.Windows.Forms.Button();
             this.queryTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.teachingPlanGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,21 +74,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Wyświetl dane:";
             // 
-            // button1
+            // exitButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 439);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(253, 57);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Wyjdź";
-            this.button1.UseVisualStyleBackColor = true;
+            this.exitButton.Location = new System.Drawing.Point(12, 439);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(253, 57);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "Wyjdź";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // TeachingPlanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1942, 537);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.queryTypeComboBox);
             this.Controls.Add(this.insertRowButton);
@@ -109,6 +110,6 @@
         private System.Windows.Forms.Button insertRowButton;
         private System.Windows.Forms.ComboBox queryTypeComboBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exitButton;
     }
 }
