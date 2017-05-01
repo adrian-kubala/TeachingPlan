@@ -21,6 +21,7 @@ namespace TeachingPlan
             InitializeComponent();
 
             accountType = type;
+            queryTypeComboBox.SelectedIndex = 0;
         }
 
         private void TeachingPlanForm_Load(object sender, EventArgs e)

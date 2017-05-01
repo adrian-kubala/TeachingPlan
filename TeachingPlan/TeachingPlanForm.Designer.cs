@@ -41,17 +41,17 @@
             this.teachingPlanGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.teachingPlanGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.teachingPlanGridView.Location = new System.Drawing.Point(286, 34);
+            this.teachingPlanGridView.Location = new System.Drawing.Point(360, 34);
             this.teachingPlanGridView.Name = "teachingPlanGridView";
             this.teachingPlanGridView.RowTemplate.Height = 33;
-            this.teachingPlanGridView.Size = new System.Drawing.Size(1628, 462);
+            this.teachingPlanGridView.Size = new System.Drawing.Size(1774, 462);
             this.teachingPlanGridView.TabIndex = 0;
             // 
             // insertRowButton
             // 
             this.insertRowButton.Location = new System.Drawing.Point(12, 359);
             this.insertRowButton.Name = "insertRowButton";
-            this.insertRowButton.Size = new System.Drawing.Size(253, 57);
+            this.insertRowButton.Size = new System.Drawing.Size(331, 57);
             this.insertRowButton.TabIndex = 1;
             this.insertRowButton.Text = "Wprowadź przedmiot";
             this.insertRowButton.UseVisualStyleBackColor = true;
@@ -60,9 +60,15 @@
             // queryTypeComboBox
             // 
             this.queryTypeComboBox.FormattingEnabled = true;
+            this.queryTypeComboBox.Items.AddRange(new object[] {
+            "plan kształcenia",
+            "lista studentów grupy",
+            "ilosć studentów w grupie",
+            "wykładowcy katedr",
+            "ilość wykładowców katedry"});
             this.queryTypeComboBox.Location = new System.Drawing.Point(12, 62);
             this.queryTypeComboBox.Name = "queryTypeComboBox";
-            this.queryTypeComboBox.Size = new System.Drawing.Size(253, 33);
+            this.queryTypeComboBox.Size = new System.Drawing.Size(331, 33);
             this.queryTypeComboBox.TabIndex = 2;
             // 
             // label1
@@ -78,7 +84,7 @@
             // 
             this.exitButton.Location = new System.Drawing.Point(12, 439);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(253, 57);
+            this.exitButton.Size = new System.Drawing.Size(331, 57);
             this.exitButton.TabIndex = 4;
             this.exitButton.Text = "Wyjdź";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -88,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1942, 537);
+            this.ClientSize = new System.Drawing.Size(2162, 537);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.queryTypeComboBox);
