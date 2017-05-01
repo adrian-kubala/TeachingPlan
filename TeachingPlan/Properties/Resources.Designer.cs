@@ -76,9 +76,9 @@ namespace TeachingPlan.Properties {
         ///	Student.Id_grupy = Grupa_dziekanska.Id_grupy
         ///GROUP BY Grupa_dziekanska.Id_grupy;.
         /// </summary>
-        internal static string ilosć_studentów_w_grupie {
+        internal static string ilość_studentów_w_grupie {
             get {
-                return ResourceManager.GetString("ilosć_studentów_w_grupie", resourceCulture);
+                return ResourceManager.GetString("ilość_studentów_w_grupie", resourceCulture);
             }
         }
         
@@ -107,6 +107,21 @@ namespace TeachingPlan.Properties {
         internal static string ilość_wykładowców_katedr {
             get {
                 return ResourceManager.GetString("ilość_wykładowców_katedr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT DISTINCT Nazwa_katedry, Przedmiot.Nazwa_przedmiotu, Grupa_dziekanska.Id_grupy, Aktualny_semestr.Id_semestru 
+        ///FROM Katedra, Grupa_dziekanska, Nauczyciel, [PRZEDMIOT-NAUCZYCIEL], [SPECJALNOSC-PRZEDMIOT], Przedmiot,
+        ///	Specjalnosc, Kierunek, Wydzial, Aktualny_semestr
+        ///WHERE Nauczyciel.Id_katedry = Katedra.Id_katedry AND
+        ///	[PRZEDMIOT-NAUCZYCIEL].Id_nauczyciela = Nauczyciel.Id_nauczyciela AND
+        ///	[PRZEDMIOT-NAUCZYCIEL].Id_przedmiotu = Przedmiot.Id_przedmiotu AND
+        ///	[SPECJALNOSC-PRZEDMIOT].Id_przedmiotu = Prz [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string lista_katedr {
+            get {
+                return ResourceManager.GetString("lista_katedr", resourceCulture);
             }
         }
         

@@ -21,11 +21,6 @@ namespace TeachingPlan
         private void loginButton_Click(object sender, EventArgs e)
         {
             int selectedIndex = accountTypeComboBox.SelectedIndex;
-            if (selectedIndex < 0)
-            {
-                MessageBox.Show("Nie wybrano żadnego konta");
-                return;
-            }
 
             AccountType type = (AccountType)Enum.ToObject(typeof(AccountType), selectedIndex);
             TeachingPlanForm form = new TeachingPlanForm(type);
