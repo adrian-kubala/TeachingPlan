@@ -139,17 +139,19 @@
             this.exitButton.TabIndex = 1;
             this.exitButton.Text = "Wyjdź";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.CloseFormEvent);
             // 
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.saveButton.Location = new System.Drawing.Point(1896, 794);
+            this.saveButton.Location = new System.Drawing.Point(1976, 794);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(217, 61);
+            this.saveButton.Size = new System.Drawing.Size(135, 61);
             this.saveButton.TabIndex = 2;
-            this.saveButton.Text = "Zapisz i wyjdź";
+            this.saveButton.Text = "Zapisz";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.CloseFormEvent);
             // 
             // SubjectCreatorForm
             // 
