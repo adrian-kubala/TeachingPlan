@@ -21,26 +21,8 @@ namespace TeachingPlan
                     var comboBoxColumn = column as DataGridViewComboBoxColumn;
                     var columnHeader = comboBoxColumn.HeaderText;
                     string commandText = Properties.Resources.ResourceManager.GetString(columnHeader);
-
-                    DataTable table = new DataTable();
-
-                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-                    {
-                        SqlCommand command = new SqlCommand(commandText, connection);
-                        try
-                        {
-                            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-
-                            table = new DataTable();
-                            dataAdapter.Fill(table);
-                        }
-                        catch (Exception exeption)
-                        {
-                            MessageBox.Show(exeption.Message);
-                        }
-                    }
-
-                    comboBoxColumn.DataSource = table;
+                    
+                    comboBoxColumn.DataSource = SqlExecutor.Select(commandText);
                     comboBoxColumn.DisplayMember = columnHeader;
                 }
             }
