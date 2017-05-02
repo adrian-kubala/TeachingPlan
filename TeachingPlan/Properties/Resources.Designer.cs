@@ -120,6 +120,16 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Przedmiot VALUES (@id_rodzaj_zajec, @nazwa, @ects, @godziny);
+        ///.
+        /// </summary>
+        internal static string insert_Przedmiot {
+            get {
+                return ResourceManager.GetString("insert_Przedmiot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT DISTINCT Nazwa_katedry, Przedmiot.Nazwa_przedmiotu, Grupa_dziekanska.Id_grupy, Aktualny_semestr.Id_semestru 
         ///FROM Katedra, Grupa_dziekanska, Nauczyciel, [PRZEDMIOT-NAUCZYCIEL], [SPECJALNOSC-PRZEDMIOT], Przedmiot,
         ///	Specjalnosc, Kierunek, Wydzial, Aktualny_semestr

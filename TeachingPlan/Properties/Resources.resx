@@ -169,4 +169,7 @@
   <data name="wykładowcy_katedr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wykładowcy_katedr.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="insert_Przedmiot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_Przedmiot.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
 </root>
