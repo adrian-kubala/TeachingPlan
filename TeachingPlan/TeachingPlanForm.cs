@@ -82,8 +82,11 @@ namespace TeachingPlan
 
         private void insertRowButton_Click(object sender, EventArgs e)
         {
-            SubjectCreatorForm form = new SubjectCreatorForm();
-            form.ShowDialog();
+            if (accountType == AccountType.Teacher)
+            {
+                SubjectCreatorForm form = new SubjectCreatorForm();
+                form.ShowDialog();
+            }
         }
 
         private void exitButton_Click(object sender, EventArgs e)
