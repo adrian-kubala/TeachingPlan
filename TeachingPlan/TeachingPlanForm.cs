@@ -99,8 +99,8 @@ namespace TeachingPlan
 
         private void insertRowButton_Click(object sender, EventArgs e)
         {
-            DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
-            SqlExecutor.Insert(table, lastRow);
+            SubjectCreatorForm form = new SubjectCreatorForm();
+            form.ShowDialog();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
