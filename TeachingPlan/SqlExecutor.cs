@@ -53,7 +53,7 @@ namespace TeachingPlan
             }
         }
 
-        private static int CheckForClassType(string classType)
+        public static int CheckForClassType(string classType)
         {
             switch (classType)
             {
