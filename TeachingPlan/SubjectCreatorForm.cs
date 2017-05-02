@@ -27,7 +27,7 @@ namespace TeachingPlan
                 {
                     var comboBoxColumn = column as DataGridViewComboBoxColumn;
                     var columnHeader = comboBoxColumn.HeaderText;
-                    string commandText = Properties.Resources.ResourceManager.GetString("Studia");
+                    string commandText = Properties.Resources.ResourceManager.GetString(columnHeader);
 
                     DataTable table = new DataTable();
 
@@ -48,7 +48,7 @@ namespace TeachingPlan
                     }
 
                     comboBoxColumn.DataSource = table;
-                    comboBoxColumn.DisplayMember = "Studia";
+                    comboBoxColumn.DisplayMember = columnHeader;
                 }
             }
         }

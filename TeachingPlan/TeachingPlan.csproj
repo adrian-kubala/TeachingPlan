@@ -149,6 +149,24 @@
   <ItemGroup>
     <None Include="Resources\Studia.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tryb_studiow.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grupa_dziekanska.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Numer_semestru.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Specjalnosc.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tryb_zajec.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wykladowca.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

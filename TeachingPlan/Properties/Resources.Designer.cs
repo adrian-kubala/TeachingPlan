@@ -70,6 +70,15 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Id_grupy as Grupa_dziekanska FROM Grupa_dziekanska.
+        /// </summary>
+        internal static string Grupa_dziekanska {
+            get {
+                return ResourceManager.GetString("Grupa_dziekanska", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Grupa_dziekanska.Id_grupy, COUNT(Student.Id_studenta) as Ilosc_studentow_w_grupie
         ///FROM Grupa_dziekanska, Student
         ///WHERE Grupa_dziekanska.Id_grupy = 1 AND
@@ -158,6 +167,15 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Id_semestru as Numer_semestru FROM Aktualny_semestr.
+        /// </summary>
+        internal static string Numer_semestru {
+            get {
+                return ResourceManager.GetString("Numer_semestru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Specjalnosc.Nazwa_specjalnosci, Nauczyciel.Imie_nauczyciela, Nauczyciel.Nazwisko_nauczyciela, Aktualny_semestr.Id_semestru, SUM(DISTINCT Przedmiot.Ilosc_godzin) as Obciazenie
         ///FROM Rodzaj_zajec, Przedmiot, [SPECJALNOSC-PRZEDMIOT], Specjalnosc, Kierunek, Wydzial, Grupa_dziekanska, Aktualny_semestr,
         ///	[PRZEDMIOT-NAUCZYCIEL], Nauczyciel
@@ -190,11 +208,47 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_specjalnosci as Specjalnosc FROM Specjalnosc.
+        /// </summary>
+        internal static string Specjalnosc {
+            get {
+                return ResourceManager.GetString("Specjalnosc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Nazwa_studiow as Studia FROM Studia.
         /// </summary>
         internal static string Studia {
             get {
                 return ResourceManager.GetString("Studia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_stopnia as Tryb_studiow FROM Stopien_studiow.
+        /// </summary>
+        internal static string Tryb_studiow {
+            get {
+                return ResourceManager.GetString("Tryb_studiow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_rodzaju_zajec as Tryb_zajec FROM Rodzaj_zajec.
+        /// </summary>
+        internal static string Tryb_zajec {
+            get {
+                return ResourceManager.GetString("Tryb_zajec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwisko_nauczyciela as Wykladowca FROM Nauczyciel.
+        /// </summary>
+        internal static string Wykladowca {
+            get {
+                return ResourceManager.GetString("Wykladowca", resourceCulture);
             }
         }
         

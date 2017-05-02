@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.subjectsGridView = new System.Windows.Forms.DataGridView();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
             this.subjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studyName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.studyMode = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -41,6 +39,8 @@
             this.semesterNumber = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.classesMode = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ectsPoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.subjectsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,30 +65,8 @@
             this.subjectsGridView.Location = new System.Drawing.Point(30, 30);
             this.subjectsGridView.Name = "subjectsGridView";
             this.subjectsGridView.RowTemplate.Height = 33;
-            this.subjectsGridView.Size = new System.Drawing.Size(2140, 550);
+            this.subjectsGridView.Size = new System.Drawing.Size(2238, 724);
             this.subjectsGridView.TabIndex = 0;
-            // 
-            // exitButton
-            // 
-            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exitButton.Location = new System.Drawing.Point(2035, 620);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(135, 61);
-            this.exitButton.TabIndex = 1;
-            this.exitButton.Text = "Wyjdź";
-            this.exitButton.UseVisualStyleBackColor = true;
-            // 
-            // saveButton
-            // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.saveButton.Location = new System.Drawing.Point(1798, 620);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(217, 61);
-            this.saveButton.TabIndex = 2;
-            this.saveButton.Text = "Zapisz i wyjdź";
-            this.saveButton.UseVisualStyleBackColor = true;
             // 
             // subjectName
             // 
@@ -151,11 +129,33 @@
             this.ectsPoints.Name = "ectsPoints";
             this.ectsPoints.Width = 191;
             // 
+            // exitButton
+            // 
+            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exitButton.Location = new System.Drawing.Point(2133, 794);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(135, 61);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.Text = "Wyjdź";
+            this.exitButton.UseVisualStyleBackColor = true;
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.saveButton.Location = new System.Drawing.Point(1896, 794);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(217, 61);
+            this.saveButton.TabIndex = 2;
+            this.saveButton.Text = "Zapisz i wyjdź";
+            this.saveButton.UseVisualStyleBackColor = true;
+            // 
             // SubjectCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2214, 715);
+            this.ClientSize = new System.Drawing.Size(2312, 889);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.subjectsGridView);
