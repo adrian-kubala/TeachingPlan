@@ -145,6 +145,9 @@
   <data name="plan_kształcenia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plan_kształcenia.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="Studia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Studia.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
   <data name="wykładowcy_katedr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wykładowcy_katedr.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>

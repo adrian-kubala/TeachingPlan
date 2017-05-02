@@ -21,33 +21,36 @@ namespace TeachingPlan
 
         private void SubjectCreatorForm_Load(object sender, EventArgs e)
         {
-            //DataTable table = new DataTable();
+            foreach (var column in subjectsGridView.Columns)
+            {
+                if (column is DataGridViewComboBoxColumn)
+                {
+                    var comboBoxColumn = column as DataGridViewComboBoxColumn;
+                    var columnHeader = comboBoxColumn.HeaderText;
+                    string commandText = Properties.Resources.ResourceManager.GetString("Studia");
 
-            //using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-            //{
-            //    SqlCommand teachingPlanCommand = new SqlCommand("SELECT Nazwa_studiow as Studia FROM Studia;", connection);
-            //    try
-            //    {
-            //        SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
+                    DataTable table = new DataTable();
 
-            //        table = new DataTable();
-            //        dataAdapter.Fill(table);
-            //    }
-            //    catch (Exception exeption)
-            //    {
-            //        MessageBox.Show(exeption.Message);
-            //    }
-            //}
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand command = new SqlCommand(commandText, connection);
+                        try
+                        {
+                            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
 
-            //DataGridViewTextBoxColumn colum = new DataGridViewTextBoxColumn();
-            //colum.Name = "Nazwa przedmiotu";
-            //subjectsGridView.Columns.Add(colum);
+                            table = new DataTable();
+                            dataAdapter.Fill(table);
+                        }
+                        catch (Exception exeption)
+                        {
+                            MessageBox.Show(exeption.Message);
+                        }
+                    }
 
-            //DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            //comboBoxColumn.DataSource = table;
-            //comboBoxColumn.DisplayMember = "Studia";
-            //comboBoxColumn.Name = comboBoxColumn.DisplayMember.ToString();
-            //subjectsGridView.Columns.Add(comboBoxColumn);
+                    comboBoxColumn.DataSource = table;
+                    comboBoxColumn.DisplayMember = "Studia";
+                }
+            }
         }
     }
 }

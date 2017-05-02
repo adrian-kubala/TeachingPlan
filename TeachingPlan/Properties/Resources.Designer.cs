@@ -190,6 +190,15 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_studiow as Studia FROM Studia.
+        /// </summary>
+        internal static string Studia {
+            get {
+                return ResourceManager.GetString("Studia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Imie_nauczyciela, Nazwisko_nauczyciela, Nazwa_kategorii, Nazwa_tytulu, Plec_nauczyciela, 
         ///DATEPART(YYYY, Data_urodzenia_nauczyciela) as Rok_urodzenia_nauczyciela, DATEDIFF(YY, Data_urodzenia_nauczyciela, 
         ///GETDATE()) as Wiek_nauczyciela, Obecnosc_dzieci_nauczyciela, Ilosc_dzieci, Pensja_nauczyciela
