@@ -14,7 +14,6 @@ namespace TeachingPlan
     public partial class TeachingPlanForm : Form
     {
         private AccountType accountType;
-        private DataTable table;
 
         public TeachingPlanForm(AccountType type)
         {
@@ -78,29 +77,13 @@ namespace TeachingPlan
 
         private void FillGridView(string queryText)
         {
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-            {
-                SqlCommand teachingPlanCommand = new SqlCommand(queryText, connection);
-                try
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(teachingPlanCommand);
-
-                    table = new DataTable();
-                    dataAdapter.Fill(table);
-
-                    teachingPlanGridView.DataSource = table;
-                }
-                catch (Exception exeption)
-                {
-                    MessageBox.Show(exeption.Message);
-                }
-            }
+            teachingPlanGridView.DataSource = SqlExecutor.Select(queryText);
         }
 
         private void insertRowButton_Click(object sender, EventArgs e)
         {
-            DataGridViewRow lastRow = teachingPlanGridView.Rows[teachingPlanGridView.Rows.Count - 2];
-            SqlExecutor.Insert(table, lastRow);
+            SubjectCreatorForm form = new SubjectCreatorForm();
+            form.ShowDialog();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
