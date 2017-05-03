@@ -79,6 +79,15 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Id_nauczyciela FROM Nauczyciel WHERE Nazwisko_nauczyciela = @nazwisko.
+        /// </summary>
+        internal static string Id_nauczyciela_nazwisko {
+            get {
+                return ResourceManager.GetString("Id_nauczyciela_nazwisko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Grupa_dziekanska.Id_grupy, COUNT(Student.Id_studenta) as Ilosc_studentow_w_grupie
         ///FROM Grupa_dziekanska, Student
         ///WHERE Grupa_dziekanska.Id_grupy = 1 AND
@@ -126,6 +135,25 @@ namespace TeachingPlan.Properties {
         internal static string insert_Przedmiot {
             get {
                 return ResourceManager.GetString("insert_Przedmiot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [PRZEDMIOT-NAUCZYCIEL] VALUES (@Id_przedmiotu, @Id_nauczyciela).
+        /// </summary>
+        internal static string insert_PRZEDMIOT_NAUCZYCIEL {
+            get {
+                return ResourceManager.GetString("insert_PRZEDMIOT_NAUCZYCIEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT TOP 1 Id_przedmiotu FROM Przedmiot
+        ///ORDER BY Id_przedmiotu DESC;.
+        /// </summary>
+        internal static string last_Id_przedmiotu {
+            get {
+                return ResourceManager.GetString("last_Id_przedmiotu", resourceCulture);
             }
         }
         

@@ -172,4 +172,13 @@
   <data name="insert_Przedmiot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\insert_Przedmiot.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="Id_nauczyciela_nazwisko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Id_nauczyciela-nazwisko.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="insert_PRZEDMIOT_NAUCZYCIEL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_PRZEDMIOT-NAUCZYCIEL.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="last_Id_przedmiotu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\last_Id_przedmiotu.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
 </root>

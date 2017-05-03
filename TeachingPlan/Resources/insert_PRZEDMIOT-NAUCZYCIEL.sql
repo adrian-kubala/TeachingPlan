@@ -1,0 +1,1 @@
+INSERT INTO [PRZEDMIOT-NAUCZYCIEL] VALUES (@Id_przedmiotu, @Id_nauczyciela)
