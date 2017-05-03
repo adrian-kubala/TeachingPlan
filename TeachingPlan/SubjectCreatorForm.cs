@@ -86,6 +86,47 @@ namespace TeachingPlan
                         }
                     }
 
+
+
+
+                    comboBoxCell = row.Cells[4] as DataGridViewComboBoxCell;
+                    var specialityName = comboBoxCell.Value as string;
+
+                    int specialityIdByName;
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand specialityIdByNameCommand = new SqlCommand(Properties.Resources.Id_specjalnosci_nazwa, connection);
+
+                        specialityIdByNameCommand.Parameters.Add(new SqlParameter("@specjalnosc", specialityName));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(specialityIdByNameCommand))
+                        {
+                            dataAdapter.SelectCommand = specialityIdByNameCommand;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+
+                            specialityIdByName = dataTable.Rows[0].Field<int>(0);
+                        }
+                    }
+
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand assignSubject = new SqlCommand(Properties.Resources.insert_SPECJALNOSC_PRZEDMIOT, connection);
+
+                        assignSubject.Parameters.Add(new SqlParameter("@Id_specjalnosci", specialityIdByName));
+                        assignSubject.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectLastId));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(assignSubject))
+                        {
+                            dataAdapter.InsertCommand = assignSubject;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+                            dataAdapter.Update(dataTable);
+                        }
+                    }
+
                 }
             }
             else

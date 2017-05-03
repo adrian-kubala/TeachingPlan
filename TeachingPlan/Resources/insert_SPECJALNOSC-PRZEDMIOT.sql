@@ -1,0 +1,1 @@
+INSERT INTO [SPECJALNOSC-PRZEDMIOT] VALUES (@Id_specjalnosci, @Id_przedmiotu)

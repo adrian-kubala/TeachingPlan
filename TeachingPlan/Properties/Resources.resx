@@ -175,8 +175,14 @@
   <data name="Id_nauczyciela_nazwisko" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Id_nauczyciela-nazwisko.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="Id_specjalnosci_nazwa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Id_specjalnosci-nazwa.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
   <data name="insert_PRZEDMIOT_NAUCZYCIEL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\insert_PRZEDMIOT-NAUCZYCIEL.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="insert_SPECJALNOSC_PRZEDMIOT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_SPECJALNOSC-PRZEDMIOT.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
   <data name="last_Id_przedmiotu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\last_Id_przedmiotu.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
