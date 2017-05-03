@@ -43,37 +43,7 @@ namespace TeachingPlan
                         return;
                     }
 
-                    var comboBoxCell = row.Cells[8] as DataGridViewComboBoxCell;
-                    var classTypeId = SqlExecutor.CheckForClassType(comboBoxCell.Value as string);
-
-                    var textBoxCell = row.Cells[0] as DataGridViewTextBoxCell;
-                    var subjectName = textBoxCell.Value as string;
-
-                    textBoxCell = row.Cells[9] as DataGridViewTextBoxCell;
-                    var ects = textBoxCell.Value as string;
-
-                    textBoxCell = row.Cells[6] as DataGridViewTextBoxCell;
-                    var hours = textBoxCell.Value as string;
-
-                    String insertSubjectQuery = Properties.Resources.insert_Przedmiot;
-
-                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-                    {
-                        SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
-
-                        insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
-                        insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
-                        insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
-                        insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
-
-                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(insertSubjectCommand))
-                        {
-                            dataAdapter.InsertCommand = insertSubjectCommand;
-                            var dataTable = new DataTable();
-                            dataAdapter.Fill(dataTable);
-                            dataAdapter.Update(dataTable);
-                        }
-                    }
+                    SqlExecutor.InsertSubject(row);
                 }
             }
             else

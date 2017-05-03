@@ -11,45 +11,38 @@ namespace TeachingPlan
 {
     class SqlExecutor
     {
-        public static void Insert(DataTable table, DataGridViewRow row)
+        public static void InsertSubject(DataGridViewRow row)
         {
-            try
+            var comboBoxCell = row.Cells[8] as DataGridViewComboBoxCell;
+            var classTypeId = SqlExecutor.CheckForClassType(comboBoxCell.Value as string);
+
+            var textBoxCell = row.Cells[0] as DataGridViewTextBoxCell;
+            var subjectName = textBoxCell.Value as string;
+
+            textBoxCell = row.Cells[9] as DataGridViewTextBoxCell;
+            var ects = textBoxCell.Value as string;
+
+            textBoxCell = row.Cells[6] as DataGridViewTextBoxCell;
+            var hours = textBoxCell.Value as string;
+
+            String insertSubjectQuery = Properties.Resources.insert_Przedmiot;
+
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
             {
-                string subjectName = (string)row.Cells[0].Value;
-                int hours = (int)row.Cells[8].Value;
-                string classType = (string)row.Cells[10].Value;
-                int ects = (int)row.Cells[11].Value;
+                SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
 
-                String insertSubjectQuery = Properties.Resources.DodajPrzedmiot;
+                insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
+                insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
+                insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
+                insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
 
-                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(insertSubjectCommand))
                 {
-                    SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
-
-                    int classTypeId = CheckForClassType(classType);
-                    if (classTypeId < 0)
-                    {
-                        MessageBox.Show("Wprowadzono nieprawidłową wartosć w kolumnie Tryb_zajec");
-                        return;
-                    }
-
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
-                    insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
-
-                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(insertSubjectCommand))
-                    {
-                        dataAdapter.InsertCommand = insertSubjectCommand;
-                        dataAdapter.Update(table);
-
-                        MessageBox.Show("Aktualizacja bazy powiodła się.");
-                    }
+                    dataAdapter.InsertCommand = insertSubjectCommand;
+                    var dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+                    dataAdapter.Update(dataTable);
                 }
-            }
-            catch (InvalidCastException)
-            {
-                MessageBox.Show("Pozostawiono puste pole(a). Aby dodać wpis uzupełnij dane.");
             }
         }
 
