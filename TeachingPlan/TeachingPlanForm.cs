@@ -14,7 +14,7 @@ namespace TeachingPlan
     public partial class TeachingPlanForm : Form
     {
         private AccountType accountType;
-
+        
         public TeachingPlanForm(AccountType type)
         {
             InitializeComponent();
@@ -85,6 +85,7 @@ namespace TeachingPlan
             if (accountType == AccountType.Teacher)
             {
                 SubjectCreatorForm form = new SubjectCreatorForm();
+                form.invoker = new MethodInvoker(PrepareDataGridView);
                 form.ShowDialog();
             }
         }
