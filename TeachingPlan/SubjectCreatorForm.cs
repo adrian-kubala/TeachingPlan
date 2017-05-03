@@ -44,6 +44,48 @@ namespace TeachingPlan
                     }
 
                     SqlExecutor.InsertSubject(row);
+
+                    var lastIdTable = SqlExecutor.Select(Properties.Resources.last_Id_przedmiotu);
+                    int subjectLastId = lastIdTable.Rows[0].Field<int>(0);
+
+                    var comboBoxCell = row.Cells[3] as DataGridViewComboBoxCell;
+                    var lastName = comboBoxCell.Value as string;
+
+                    int teacherIdByLastName;
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand teacherIdByLastNameCommand = new SqlCommand(Properties.Resources.Id_nauczyciela_nazwisko, connection);
+
+                        teacherIdByLastNameCommand.Parameters.Add(new SqlParameter("@nazwisko", lastName));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(teacherIdByLastNameCommand))
+                        {
+                            dataAdapter.SelectCommand = teacherIdByLastNameCommand;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+
+                            teacherIdByLastName = dataTable.Rows[0].Field<int>(0);
+                        }
+                    }
+
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand assignTeacherCommand = new SqlCommand(Properties.Resources.insert_PRZEDMIOT_NAUCZYCIEL, connection);
+
+                        assignTeacherCommand.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectLastId));
+                        assignTeacherCommand.Parameters.Add(new SqlParameter("@Id_nauczyciela", teacherIdByLastName));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(assignTeacherCommand))
+                        {
+                            dataAdapter.InsertCommand = assignTeacherCommand;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+                            dataAdapter.Update(dataTable);
+                        }
+                    }
+
                 }
             }
             else
