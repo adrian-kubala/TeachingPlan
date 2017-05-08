@@ -112,6 +112,7 @@
             this.Name = "TeachingPlanForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plany kształcenia - zalogowano jako ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TeachingPlanForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.teachingPlanGridView)).EndInit();
             this.ResumeLayout(false);
