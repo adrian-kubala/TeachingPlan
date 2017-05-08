@@ -85,7 +85,7 @@ namespace TeachingPlan
             if (accountType == AccountType.Teacher)
             {
                 SubjectCreatorForm form = new SubjectCreatorForm();
-                form.invoker = new MethodInvoker(PrepareDataGridView);
+                form.DidUpdateDatabase = new MethodInvoker(PrepareDataGridView);
                 form.ShowDialog();
             }
         }
@@ -94,5 +94,6 @@ namespace TeachingPlan
         {
             Close();
         }
+
     }
 }

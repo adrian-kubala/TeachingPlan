@@ -7,8 +7,7 @@ namespace TeachingPlan
 {
     public partial class SubjectCreatorForm : Form
     {
-
-        public MethodInvoker invoker;
+        public MethodInvoker DidUpdateDatabase;
 
         public SubjectCreatorForm()
         {
@@ -41,7 +40,7 @@ namespace TeachingPlan
                     if (row.Index == subjectsGridView.Rows.Count - 1)
                     {
                         MessageBox.Show("Aktualizacja bazy powiodła się!");
-                        invoker();
+                        DidUpdateDatabase();
                         Close();
 
                         return;
