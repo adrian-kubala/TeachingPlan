@@ -164,6 +164,7 @@
             this.Name = "SubjectCreatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wprowadzanie przedmiotów";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SubjectCreatorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.subjectsGridView)).EndInit();
             this.ResumeLayout(false);

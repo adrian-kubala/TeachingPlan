@@ -1,0 +1,1 @@
+SELECT Id_nauczyciela FROM Nauczyciel WHERE Nazwisko_nauczyciela = @nazwisko

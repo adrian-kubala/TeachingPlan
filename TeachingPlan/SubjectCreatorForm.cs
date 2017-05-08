@@ -7,6 +7,8 @@ namespace TeachingPlan
 {
     public partial class SubjectCreatorForm : Form
     {
+        public MethodInvoker DidUpdateDatabase;
+
         public SubjectCreatorForm()
         {
             InitializeComponent();
@@ -33,7 +35,102 @@ namespace TeachingPlan
             var button = sender as Button;
             if (button.Text == "Zapisz")
             {
-                Close();
+                foreach (DataGridViewRow row in subjectsGridView.Rows)
+                {
+                    if (row.Index == subjectsGridView.Rows.Count - 1)
+                    {
+                        MessageBox.Show("Aktualizacja bazy powiodła się!");
+                        DidUpdateDatabase();
+                        Close();
+
+                        return;
+                    }
+
+                    SqlExecutor.InsertSubject(row);
+
+                    var lastIdTable = SqlExecutor.Select(Properties.Resources.last_Id_przedmiotu);
+                    int subjectLastId = lastIdTable.Rows[0].Field<int>(0);
+
+                    var comboBoxCell = row.Cells[3] as DataGridViewComboBoxCell;
+                    var lastName = comboBoxCell.Value as string;
+
+                    int teacherIdByLastName;
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand teacherIdByLastNameCommand = new SqlCommand(Properties.Resources.Id_nauczyciela_nazwisko, connection);
+
+                        teacherIdByLastNameCommand.Parameters.Add(new SqlParameter("@nazwisko", lastName));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(teacherIdByLastNameCommand))
+                        {
+                            dataAdapter.SelectCommand = teacherIdByLastNameCommand;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+
+                            teacherIdByLastName = dataTable.Rows[0].Field<int>(0);
+                        }
+                    }
+
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand assignTeacherCommand = new SqlCommand(Properties.Resources.insert_PRZEDMIOT_NAUCZYCIEL, connection);
+
+                        assignTeacherCommand.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectLastId));
+                        assignTeacherCommand.Parameters.Add(new SqlParameter("@Id_nauczyciela", teacherIdByLastName));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(assignTeacherCommand))
+                        {
+                            dataAdapter.InsertCommand = assignTeacherCommand;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+                            dataAdapter.Update(dataTable);
+                        }
+                    }
+
+
+
+
+                    comboBoxCell = row.Cells[4] as DataGridViewComboBoxCell;
+                    var specialityName = comboBoxCell.Value as string;
+
+                    int specialityIdByName;
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand specialityIdByNameCommand = new SqlCommand(Properties.Resources.Id_specjalnosci_nazwa, connection);
+
+                        specialityIdByNameCommand.Parameters.Add(new SqlParameter("@specjalnosc", specialityName));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(specialityIdByNameCommand))
+                        {
+                            dataAdapter.SelectCommand = specialityIdByNameCommand;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+
+                            specialityIdByName = dataTable.Rows[0].Field<int>(0);
+                        }
+                    }
+
+
+                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+                    {
+                        SqlCommand assignSubject = new SqlCommand(Properties.Resources.insert_SPECJALNOSC_PRZEDMIOT, connection);
+
+                        assignSubject.Parameters.Add(new SqlParameter("@Id_specjalnosci", specialityIdByName));
+                        assignSubject.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectLastId));
+
+                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(assignSubject))
+                        {
+                            dataAdapter.InsertCommand = assignSubject;
+                            var dataTable = new DataTable();
+                            dataAdapter.Fill(dataTable);
+                            dataAdapter.Update(dataTable);
+                        }
+                    }
+
+                }
             }
             else
             {
