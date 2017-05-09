@@ -11,8 +11,9 @@ namespace TeachingPlan
 {
     class SqlExecutor
     {
-        SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString);
-        SqlCommand command;
+        private SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString);
+        private SqlCommand command;
+        private SqlDataAdapter dataAdapter;
 
         public void InsertSubject(DataGridViewRow row)
         {
@@ -37,7 +38,7 @@ namespace TeachingPlan
             command.Parameters.Add(new SqlParameter("@ects", ects));
             command.Parameters.Add(new SqlParameter("@godziny", hours));
 
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
+            using (dataAdapter = new SqlDataAdapter(command))
             {
                 dataAdapter.InsertCommand = command;
                 var dataTable = new DataTable();
@@ -68,14 +69,9 @@ namespace TeachingPlan
             DataTable table = new DataTable();
 
             command = new SqlCommand(commandText, connection);
-            try
+            using (dataAdapter = new SqlDataAdapter(command))
             {
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                 dataAdapter.Fill(table);
-            }
-            catch (Exception exeption)
-            {
-                MessageBox.Show(exeption.Message);
             }
 
             return table;
