@@ -17,7 +17,7 @@ namespace TeachingPlan
         public void InsertSubject(DataGridViewRow row)
         {
             var comboBoxCell = row.Cells[8] as DataGridViewComboBoxCell;
-            var classTypeId = SqlExecutor.CheckForClassType(comboBoxCell.Value as string);
+            var classTypeId = CheckForClassType(comboBoxCell.Value as string);
 
             var textBoxCell = row.Cells[0] as DataGridViewTextBoxCell;
             var subjectName = textBoxCell.Value as string;
@@ -46,7 +46,7 @@ namespace TeachingPlan
             }
         }
 
-        public static int CheckForClassType(string classType)
+        private int CheckForClassType(string classType)
         {
             switch (classType)
             {
