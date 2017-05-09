@@ -11,15 +11,10 @@ namespace TeachingPlan
 {
     class SqlExecutor
     {
-        SqlConnection connection;
+        SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString);
         SqlCommand command;
 
-        public SqlExecutor()
-        {
-            connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString);
-        }
-
-        public static void InsertSubject(DataGridViewRow row)
+        public void InsertSubject(DataGridViewRow row)
         {
             var comboBoxCell = row.Cells[8] as DataGridViewComboBoxCell;
             var classTypeId = SqlExecutor.CheckForClassType(comboBoxCell.Value as string);
@@ -35,22 +30,19 @@ namespace TeachingPlan
 
             String insertSubjectQuery = Properties.Resources.insert_Przedmiot;
 
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+            command = new SqlCommand(insertSubjectQuery, connection);
+
+            command.Parameters.Add(new SqlParameter("@nazwa", subjectName));
+            command.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
+            command.Parameters.Add(new SqlParameter("@ects", ects));
+            command.Parameters.Add(new SqlParameter("@godziny", hours));
+
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
             {
-                SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
-
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
-
-                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(insertSubjectCommand))
-                {
-                    dataAdapter.InsertCommand = insertSubjectCommand;
-                    var dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-                    dataAdapter.Update(dataTable);
-                }
+                dataAdapter.InsertCommand = command;
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataAdapter.Update(dataTable);
             }
         }
 
