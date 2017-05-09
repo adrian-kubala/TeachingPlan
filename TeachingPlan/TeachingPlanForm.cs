@@ -14,6 +14,7 @@ namespace TeachingPlan
     public partial class TeachingPlanForm : Form
     {
         private AccountType accountType;
+        private SqlExecutor sqlExecutor = new SqlExecutor();
         
         public TeachingPlanForm(AccountType type)
         {
@@ -77,7 +78,7 @@ namespace TeachingPlan
 
         private void FillGridView(string queryText)
         {
-            teachingPlanGridView.DataSource = SqlExecutor.Select(queryText);
+            teachingPlanGridView.DataSource = sqlExecutor.Select(queryText);
         }
 
         private void insertRowButton_Click(object sender, EventArgs e)
