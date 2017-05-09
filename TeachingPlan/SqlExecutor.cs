@@ -34,13 +34,11 @@ namespace TeachingPlan
             command.Parameters.Add(new SqlParameter("@ects", ects));
             command.Parameters.Add(new SqlParameter("@godziny", hours));
 
-            using (dataAdapter = new SqlDataAdapter(command))
-            {
-                dataAdapter.InsertCommand = command;
-                var dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                dataAdapter.Update(dataTable);
-            }
+            dataAdapter = new SqlDataAdapter(command);
+            dataAdapter.InsertCommand = command;
+            var dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dataAdapter.Update(dataTable);
         }
 
         private int CheckForClassType(string classType)
@@ -65,10 +63,8 @@ namespace TeachingPlan
             DataTable table = new DataTable();
 
             command = new SqlCommand(commandText, connection);
-            using (dataAdapter = new SqlDataAdapter(command))
-            {
-                dataAdapter.Fill(table);
-            }
+            dataAdapter = new SqlDataAdapter(command);
+            dataAdapter.Fill(table);
 
             return table;
         }
