@@ -7,6 +7,8 @@ namespace TeachingPlan
 {
     public partial class SubjectCreatorForm : Form
     {
+        private SqlExecutor sqlExecutor = new SqlExecutor();
+
         public MethodInvoker DidUpdateDatabase;
 
         public SubjectCreatorForm()
@@ -24,7 +26,7 @@ namespace TeachingPlan
                     var columnHeader = comboBoxColumn.HeaderText;
                     string commandText = Properties.Resources.ResourceManager.GetString(columnHeader);
                     
-                    comboBoxColumn.DataSource = SqlExecutor.Select(commandText);
+                    comboBoxColumn.DataSource = sqlExecutor.Select(commandText);
                     comboBoxColumn.DisplayMember = columnHeader;
                 }
             }
@@ -46,9 +48,9 @@ namespace TeachingPlan
                         return;
                     }
 
-                    SqlExecutor.InsertSubject(row);
+                    sqlExecutor.InsertSubject(row);
 
-                    var lastIdTable = SqlExecutor.Select(Properties.Resources.last_Id_przedmiotu);
+                    var lastIdTable = sqlExecutor.Select(Properties.Resources.last_Id_przedmiotu);
                     int subjectLastId = lastIdTable.Rows[0].Field<int>(0);
 
                     var comboBoxCell = row.Cells[3] as DataGridViewComboBoxCell;

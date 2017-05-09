@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TeachingPlan
 {
     class SqlExecutor
     {
-        public static void InsertSubject(DataGridViewRow row)
+        private SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString);
+        private SqlCommand command;
+        private SqlDataAdapter dataAdapter;
+
+        public void InsertSubject(DataGridViewRow row)
         {
             var comboBoxCell = row.Cells[8] as DataGridViewComboBoxCell;
-            var classTypeId = SqlExecutor.CheckForClassType(comboBoxCell.Value as string);
+            var classTypeId = CheckForClassType(comboBoxCell.Value as string);
 
             var textBoxCell = row.Cells[0] as DataGridViewTextBoxCell;
             var subjectName = textBoxCell.Value as string;
@@ -27,26 +27,23 @@ namespace TeachingPlan
 
             String insertSubjectQuery = Properties.Resources.insert_Przedmiot;
 
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+            command = new SqlCommand(insertSubjectQuery, connection);
+
+            command.Parameters.Add(new SqlParameter("@nazwa", subjectName));
+            command.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
+            command.Parameters.Add(new SqlParameter("@ects", ects));
+            command.Parameters.Add(new SqlParameter("@godziny", hours));
+
+            using (dataAdapter = new SqlDataAdapter(command))
             {
-                SqlCommand insertSubjectCommand = new SqlCommand(insertSubjectQuery, connection);
-
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@nazwa", subjectName));
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@id_rodzaj_zajec", classTypeId));
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@ects", ects));
-                insertSubjectCommand.Parameters.Add(new SqlParameter("@godziny", hours));
-
-                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(insertSubjectCommand))
-                {
-                    dataAdapter.InsertCommand = insertSubjectCommand;
-                    var dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-                    dataAdapter.Update(dataTable);
-                }
+                dataAdapter.InsertCommand = command;
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataAdapter.Update(dataTable);
             }
         }
 
-        public static int CheckForClassType(string classType)
+        private int CheckForClassType(string classType)
         {
             switch (classType)
             {
@@ -63,22 +60,14 @@ namespace TeachingPlan
             }
         }
 
-        public static DataTable Select(string commandText)
+        public DataTable Select(string commandText)
         {
             DataTable table = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+            command = new SqlCommand(commandText, connection);
+            using (dataAdapter = new SqlDataAdapter(command))
             {
-                SqlCommand command = new SqlCommand(commandText, connection);
-                try
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                    dataAdapter.Fill(table);
-                }
-                catch (Exception exeption)
-                {
-                    MessageBox.Show(exeption.Message);
-                }
+                dataAdapter.Fill(table);
             }
 
             return table;
