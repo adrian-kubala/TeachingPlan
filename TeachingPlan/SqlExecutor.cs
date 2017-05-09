@@ -11,6 +11,14 @@ namespace TeachingPlan
 {
     class SqlExecutor
     {
+        SqlConnection connection;
+        SqlCommand command;
+
+        public SqlExecutor()
+        {
+            connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString);
+        }
+
         public static void InsertSubject(DataGridViewRow row)
         {
             var comboBoxCell = row.Cells[8] as DataGridViewComboBoxCell;
