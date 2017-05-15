@@ -56,23 +56,9 @@ namespace TeachingPlan
                     var comboBoxCell = row.Cells[3] as DataGridViewComboBoxCell;
                     var lastName = comboBoxCell.Value as string;
 
-                    int teacherIdByLastName;
+                    int teacherIdByLastName = sqlExecutor.SelectTeacherIdBy(lastName);
 
-                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-                    {
-                        SqlCommand teacherIdByLastNameCommand = new SqlCommand(Properties.Resources.Id_nauczyciela_nazwisko, connection);
 
-                        teacherIdByLastNameCommand.Parameters.Add(new SqlParameter("@nazwisko", lastName));
-
-                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(teacherIdByLastNameCommand))
-                        {
-                            dataAdapter.SelectCommand = teacherIdByLastNameCommand;
-                            var dataTable = new DataTable();
-                            dataAdapter.Fill(dataTable);
-
-                            teacherIdByLastName = dataTable.Rows[0].Field<int>(0);
-                        }
-                    }
 
 
                     using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))

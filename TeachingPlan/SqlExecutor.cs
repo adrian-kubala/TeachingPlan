@@ -41,6 +41,18 @@ namespace TeachingPlan
             dataAdapter.Update(dataTable);
         }
 
+        public int SelectTeacherIdBy(string lastName)
+        {
+            command = new SqlCommand(Properties.Resources.Id_nauczyciela_nazwisko, connection);
+            command.Parameters.Add(new SqlParameter("@nazwisko", lastName));
+
+            dataAdapter.SelectCommand = command;
+            var dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+
+            return dataTable.Rows[0].Field<int>(0);
+        }
+
         private int CheckForClassType(string classType)
         {
             switch (classType)
