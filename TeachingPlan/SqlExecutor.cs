@@ -53,6 +53,37 @@ namespace TeachingPlan
             return dataTable.Rows[0].Field<int>(0);
         }
 
+        public void AssignTeacher(int teacherId, int subjectId)
+        {
+            command = new SqlCommand(Properties.Resources.insert_PRZEDMIOT_NAUCZYCIEL, connection);
+
+            command.Parameters.Add(new SqlParameter("@Id_nauczyciela", teacherId));
+            command.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectId));
+
+            dataAdapter.InsertCommand = command;
+            var dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dataAdapter.Update(dataTable);
+        }
+
+        public int SelectSpecialityIdBy(string name)
+        {
+            command = new SqlCommand(Properties.Resources.Id_specjalnosci_nazwa, connection);
+            command.Parameters.Add(new SqlParameter("@specjalnosc", name));
+
+            dataAdapter.SelectCommand = command;
+            var dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+
+            return dataTable.Rows[0].Field<int>(0);
+        }
+
+        public int SelectSubjectLastId()
+        {
+            var lastIdTable = Select(Properties.Resources.last_Id_przedmiotu);
+            return lastIdTable.Rows[0].Field<int>(0);
+        }
+
         private int CheckForClassType(string classType)
         {
             switch (classType)
