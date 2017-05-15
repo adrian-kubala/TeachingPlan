@@ -49,8 +49,8 @@ namespace TeachingPlan
                     }
 
                     sqlExecutor.InsertSubject(row);
-                    AssignTeacher(row);
-                    AssignSubject(row);
+                    sqlExecutor.AssignTeacher(row);
+                    sqlExecutor.AssignSubject(row);
                 }
             }
             else
@@ -60,41 +60,6 @@ namespace TeachingPlan
                 if (dialogResult == DialogResult.OK)
                 {
                     Close();
-                }
-            }
-        }
-
-        private void AssignTeacher(DataGridViewRow row)
-        {
-            var comboBoxCell = row.Cells[3] as DataGridViewComboBoxCell;
-            var lastName = comboBoxCell.Value as string;
-
-            int teacherIdByLastName = sqlExecutor.SelectTeacherIdBy(lastName);
-            int subjectLastId = sqlExecutor.SelectSubjectLastId();
-            sqlExecutor.AssignTeacher(teacherIdByLastName, subjectLastId);
-        }
-
-        private void AssignSubject(DataGridViewRow row)
-        {
-            var comboBoxCell = row.Cells[4] as DataGridViewComboBoxCell;
-            var specialityName = comboBoxCell.Value as string;
-
-            int specialityIdByName = sqlExecutor.SelectSpecialityIdBy(specialityName);
-            int subjectLastId = sqlExecutor.SelectSubjectLastId();
-
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-            {
-                SqlCommand assignSubject = new SqlCommand(Properties.Resources.insert_SPECJALNOSC_PRZEDMIOT, connection);
-
-                assignSubject.Parameters.Add(new SqlParameter("@Id_specjalnosci", specialityIdByName));
-                assignSubject.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectLastId));
-
-                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(assignSubject))
-                {
-                    dataAdapter.InsertCommand = assignSubject;
-                    var dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-                    dataAdapter.Update(dataTable);
                 }
             }
         }
