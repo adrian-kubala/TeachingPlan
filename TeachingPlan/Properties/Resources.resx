@@ -121,6 +121,9 @@
   <data name="DodajPrzedmiot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DodajPrzedmiot.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="Grupa_dziekanska" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Grupa_dziekanska.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
   <data name="ilość_studentów_w_grupie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ilość_studentów_w_grupie.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
@@ -139,13 +142,49 @@
   <data name="lista_wykładowców_grupy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lista_wykładowców_grupy.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="Numer_semestru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Numer_semestru.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
   <data name="obciążenie_wykładowców" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\obciążenie_wykładowców.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
   <data name="plan_kształcenia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plan_kształcenia.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="Specjalnosc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Specjalnosc.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Studia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Studia.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Tryb_studiow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tryb_studiow.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Tryb_zajec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tryb_zajec.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Wykladowca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wykladowca.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
   <data name="wykładowcy_katedr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wykładowcy_katedr.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="insert_Przedmiot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_Przedmiot.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="Id_nauczyciela_nazwisko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Id_nauczyciela-nazwisko.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="Id_specjalnosci_nazwa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Id_specjalnosci-nazwa.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="insert_PRZEDMIOT_NAUCZYCIEL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_PRZEDMIOT-NAUCZYCIEL.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="insert_SPECJALNOSC_PRZEDMIOT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insert_SPECJALNOSC-PRZEDMIOT.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
+  <data name="last_Id_przedmiotu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\last_Id_przedmiotu.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
 </root>

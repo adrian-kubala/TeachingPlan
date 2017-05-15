@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TeachingPlan
@@ -27,7 +20,7 @@ namespace TeachingPlan
         {
             int selectedIndex = accountTypeComboBox.SelectedIndex;
 
-            AccountType type = (AccountType)Enum.ToObject(typeof(AccountType), selectedIndex);
+            AccountType type = selectedIndex.AccountType();
             TeachingPlanForm form = new TeachingPlanForm(type);
             
             form.ShowDialog();

@@ -70,6 +70,33 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Id_grupy as Grupa_dziekanska FROM Grupa_dziekanska.
+        /// </summary>
+        internal static string Grupa_dziekanska {
+            get {
+                return ResourceManager.GetString("Grupa_dziekanska", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Id_nauczyciela FROM Nauczyciel WHERE Nazwisko_nauczyciela = @nazwisko.
+        /// </summary>
+        internal static string Id_nauczyciela_nazwisko {
+            get {
+                return ResourceManager.GetString("Id_nauczyciela_nazwisko", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Id_specjalnosci FROM Specjalnosc WHERE Nazwa_specjalnosci = @specjalnosc.
+        /// </summary>
+        internal static string Id_specjalnosci_nazwa {
+            get {
+                return ResourceManager.GetString("Id_specjalnosci_nazwa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Grupa_dziekanska.Id_grupy, COUNT(Student.Id_studenta) as Ilosc_studentow_w_grupie
         ///FROM Grupa_dziekanska, Student
         ///WHERE Grupa_dziekanska.Id_grupy = 1 AND
@@ -107,6 +134,44 @@ namespace TeachingPlan.Properties {
         internal static string ilość_wykładowców_katedr {
             get {
                 return ResourceManager.GetString("ilość_wykładowców_katedr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Przedmiot VALUES (@id_rodzaj_zajec, @nazwa, @ects, @godziny);
+        ///.
+        /// </summary>
+        internal static string insert_Przedmiot {
+            get {
+                return ResourceManager.GetString("insert_Przedmiot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [PRZEDMIOT-NAUCZYCIEL] VALUES (@Id_przedmiotu, @Id_nauczyciela).
+        /// </summary>
+        internal static string insert_PRZEDMIOT_NAUCZYCIEL {
+            get {
+                return ResourceManager.GetString("insert_PRZEDMIOT_NAUCZYCIEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO [SPECJALNOSC-PRZEDMIOT] VALUES (@Id_specjalnosci, @Id_przedmiotu).
+        /// </summary>
+        internal static string insert_SPECJALNOSC_PRZEDMIOT {
+            get {
+                return ResourceManager.GetString("insert_SPECJALNOSC_PRZEDMIOT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT TOP 1 Id_przedmiotu FROM Przedmiot
+        ///ORDER BY Id_przedmiotu DESC;.
+        /// </summary>
+        internal static string last_Id_przedmiotu {
+            get {
+                return ResourceManager.GetString("last_Id_przedmiotu", resourceCulture);
             }
         }
         
@@ -158,6 +223,15 @@ namespace TeachingPlan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Id_semestru as Numer_semestru FROM Aktualny_semestr.
+        /// </summary>
+        internal static string Numer_semestru {
+            get {
+                return ResourceManager.GetString("Numer_semestru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Specjalnosc.Nazwa_specjalnosci, Nauczyciel.Imie_nauczyciela, Nauczyciel.Nazwisko_nauczyciela, Aktualny_semestr.Id_semestru, SUM(DISTINCT Przedmiot.Ilosc_godzin) as Obciazenie
         ///FROM Rodzaj_zajec, Przedmiot, [SPECJALNOSC-PRZEDMIOT], Specjalnosc, Kierunek, Wydzial, Grupa_dziekanska, Aktualny_semestr,
         ///	[PRZEDMIOT-NAUCZYCIEL], Nauczyciel
@@ -186,6 +260,51 @@ namespace TeachingPlan.Properties {
         internal static string plan_kształcenia {
             get {
                 return ResourceManager.GetString("plan_kształcenia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_specjalnosci as Specjalnosc FROM Specjalnosc.
+        /// </summary>
+        internal static string Specjalnosc {
+            get {
+                return ResourceManager.GetString("Specjalnosc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_studiow as Studia FROM Studia.
+        /// </summary>
+        internal static string Studia {
+            get {
+                return ResourceManager.GetString("Studia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_stopnia as Tryb_studiow FROM Stopien_studiow.
+        /// </summary>
+        internal static string Tryb_studiow {
+            get {
+                return ResourceManager.GetString("Tryb_studiow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwa_rodzaju_zajec as Tryb_zajec FROM Rodzaj_zajec.
+        /// </summary>
+        internal static string Tryb_zajec {
+            get {
+                return ResourceManager.GetString("Tryb_zajec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Nazwisko_nauczyciela as Wykladowca FROM Nauczyciel.
+        /// </summary>
+        internal static string Wykladowca {
+            get {
+                return ResourceManager.GetString("Wykladowca", resourceCulture);
             }
         }
         

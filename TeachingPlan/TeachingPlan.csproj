@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountType.cs" />
+    <Compile Include="IntegerExtensions.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +57,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlExecutor.cs" />
+    <Compile Include="SubjectCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectCreatorForm.Designer.cs">
+      <DependentUpon>SubjectCreatorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="teachingPlanDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +87,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SubjectCreatorForm.resx">
+      <DependentUpon>SubjectCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TeachingPlanForm.resx">
       <DependentUpon>TeachingPlanForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +146,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\obciążenie_wykładowców.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Studia.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tryb_studiow.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grupa_dziekanska.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Numer_semestru.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Specjalnosc.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tryb_zajec.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wykladowca.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_Przedmiot.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Id_nauczyciela-nazwisko.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_PRZEDMIOT-NAUCZYCIEL.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\last_Id_przedmiotu.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Id_specjalnosci-nazwa.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_SPECJALNOSC-PRZEDMIOT.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
