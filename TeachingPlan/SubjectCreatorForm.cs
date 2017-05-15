@@ -49,30 +49,8 @@ namespace TeachingPlan
                     }
 
                     sqlExecutor.InsertSubject(row);
-                    AssignTeacherFromRow(row);
-
-                    var comboBoxCell = row.Cells[4] as DataGridViewComboBoxCell;
-                    var specialityName = comboBoxCell.Value as string;
-
-                    int specialityIdByName = sqlExecutor.SelectSpecialityIdBy(specialityName);
-                    int subjectLastId = sqlExecutor.SelectSubjectLastId();
-
-                    using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
-                    {
-                        SqlCommand assignSubject = new SqlCommand(Properties.Resources.insert_SPECJALNOSC_PRZEDMIOT, connection);
-
-                        assignSubject.Parameters.Add(new SqlParameter("@Id_specjalnosci", specialityIdByName));
-                        assignSubject.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectLastId));
-
-                        using (SqlDataAdapter dataAdapter = new SqlDataAdapter(assignSubject))
-                        {
-                            dataAdapter.InsertCommand = assignSubject;
-                            var dataTable = new DataTable();
-                            dataAdapter.Fill(dataTable);
-                            dataAdapter.Update(dataTable);
-                        }
-                    }
-
+                    AssignTeacher(row);
+                    AssignSubject(row);
                 }
             }
             else
@@ -86,7 +64,7 @@ namespace TeachingPlan
             }
         }
 
-        private void AssignTeacherFromRow(DataGridViewRow row)
+        private void AssignTeacher(DataGridViewRow row)
         {
             var comboBoxCell = row.Cells[3] as DataGridViewComboBoxCell;
             var lastName = comboBoxCell.Value as string;
@@ -96,7 +74,30 @@ namespace TeachingPlan
             sqlExecutor.AssignTeacher(teacherIdByLastName, subjectLastId);
         }
 
+        private void AssignSubject(DataGridViewRow row)
+        {
+            var comboBoxCell = row.Cells[4] as DataGridViewComboBoxCell;
+            var specialityName = comboBoxCell.Value as string;
 
+            int specialityIdByName = sqlExecutor.SelectSpecialityIdBy(specialityName);
+            int subjectLastId = sqlExecutor.SelectSubjectLastId();
+
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.teachingPlanConnectionString))
+            {
+                SqlCommand assignSubject = new SqlCommand(Properties.Resources.insert_SPECJALNOSC_PRZEDMIOT, connection);
+
+                assignSubject.Parameters.Add(new SqlParameter("@Id_specjalnosci", specialityIdByName));
+                assignSubject.Parameters.Add(new SqlParameter("@Id_przedmiotu", subjectLastId));
+
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(assignSubject))
+                {
+                    dataAdapter.InsertCommand = assignSubject;
+                    var dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+                    dataAdapter.Update(dataTable);
+                }
+            }
+        }
 
     }
 }
